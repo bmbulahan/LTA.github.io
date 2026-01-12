@@ -2,224 +2,222 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>License Terms Agreement</title>
   <style>
     :root{
-      --bg:#f7f8fb;
+      --bg:#f6f8fb;
       --card:#ffffff;
-      --text:#0f1724;
+      --accent:#0b74de;
       --muted:#6b7280;
-      --accent:#0ea5a4;
-      --border:#e6eef0;
+      --border:#e6e9ef;
       --radius:12px;
-      --maxw:900px;
+      --max-width:900px;
       --pad:24px;
+      --shadow: 0 6px 18px rgba(11,116,222,0.08);
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
+
+    html,body{
+      height:100%;
       margin:0;
       font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:linear-gradient(180deg, var(--bg), #eef6f6);
-      color:var(--text);
+      background:linear-gradient(180deg,var(--bg),#eef3fb 60%);
+      color:#111827;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      line-height:1.6;
-      padding:40px 16px;
     }
-    .container{
-      max-width:var(--maxw);
-      margin:0 auto;
+
+    .wrap{
+      max-width:var(--max-width);
+      margin:48px auto;
+      padding:16px;
+    }
+
+    .card{
       background:var(--card);
-      border-radius:var(--radius);
-      box-shadow:0 8px 30px rgba(15,23,36,0.06);
       border:1px solid var(--border);
-      overflow:hidden;
-    }
-    header{
+      border-radius:var(--radius);
       padding:var(--pad);
-      border-bottom:1px solid var(--border);
-      background:linear-gradient(90deg, rgba(14,165,164,0.06), rgba(37,99,235,0.02));
+      box-shadow:var(--shadow);
     }
-    header h1{
-      margin:0 0 6px;
-      font-size:20px;
-      letter-spacing:0.2px;
-    }
-    header p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-    }
-    main{padding:28px var(--pad) 32px}
-    .intro{
-      display:flex;
-      gap:18px;
-      align-items:flex-start;
-      margin-bottom:18px;
-    }
-    .badge{
-      min-width:56px;
-      height:56px;
-      border-radius:10px;
-      background:linear-gradient(135deg,var(--accent),#2563eb);
+
+    header{
       display:flex;
       align-items:center;
-      justify-content:center;
-      color:#fff;
-      font-weight:700;
-      font-size:18px;
-      box-shadow:0 6px 18px rgba(14,165,164,0.12);
-    }
-    .intro .lead{
-      flex:1;
-    }
-    .lead h2{
-      margin:0 0 6px;
-      font-size:18px;
-    }
-    .lead p{margin:0;color:var(--muted);font-size:14px}
-    hr.sep{
-      border:0;
-      height:1px;
-      background:var(--border);
-      margin:22px 0;
-    }
-    ol.terms{
-      counter-reset:item;
-      margin:0;
-      padding:0;
-      list-style:none;
-    }
-    ol.terms > li{
-      padding:18px;
-      border-radius:10px;
-      background:linear-gradient(180deg,#ffffff, #fbfeff);
-      border:1px solid var(--border);
+      justify-content:space-between;
+      gap:16px;
       margin-bottom:12px;
     }
-    ol.terms > li h3{
-      margin:0 0 8px;
-      font-size:16px;
-    }
-    ol.terms > li p{margin:0 0 8px;color:var(--muted)}
-    .restrictions{
+
+    h1{
+      font-size:1.25rem;
       margin:0;
-      padding-left:18px;
+      letter-spacing:-0.2px;
+    }
+
+    .meta{
       color:var(--muted);
+      font-size:0.95rem;
     }
-    .restrictions li{margin:6px 0}
-    .note{
-      margin-top:8px;
-      padding:12px;
-      border-radius:8px;
-      background:#f8fafb;
-      border:1px dashed var(--border);
-      color:var(--muted);
-      font-size:14px;
+
+    .content{
+      margin-top:12px;
+      line-height:1.6;
+      color:#111827;
     }
-    .contact{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      margin-top:8px;
-      flex-wrap:wrap;
+
+    ol.terms{
+      padding-left:1.25rem;
+      margin:0;
     }
-    .mailto{
+
+    ol.terms > li{
+      margin:18px 0;
+    }
+
+    ol.terms li h3{
+      margin:0 0 6px 0;
+      font-size:1rem;
+    }
+
+    ol.terms li p{
+      margin:0 0 8px 0;
+      color:#374151;
+    }
+
+    /* nested list for restrictions */
+    .restrictions{
+      margin:8px 0 0 0;
+      padding-left:1rem;
+      color:#374151;
+    }
+
+    .restrictions li{
+      margin:6px 0;
+    }
+
+    /* Email button styled as selectable button */
+    .email-button{
       display:inline-block;
-      background:var(--accent);
-      color:#fff;
       padding:10px 14px;
-      border-radius:8px;
+      background:linear-gradient(180deg,var(--accent),#0a63b8);
+      color:#fff;
       text-decoration:none;
+      border-radius:8px;
       font-weight:600;
+      font-size:0.95rem;
+      border:1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 4px 10px rgba(11,116,222,0.12);
+      transition:transform .08s ease, box-shadow .12s ease;
+      /* allow text selection so the email can be highlighted/copied */
+      user-select:text;
+      -webkit-user-select:text;
+      -moz-user-select:text;
+      -ms-user-select:text;
+      cursor:pointer;
     }
-    footer{
-      padding:18px var(--pad);
-      border-top:1px solid var(--border);
-      background:linear-gradient(180deg, rgba(37,99,235,0.02), transparent);
-      font-size:13px;
-      color:var(--muted);
+
+    .email-button:active{ transform:translateY(1px); }
+    .email-button:focus{
+      outline:3px solid rgba(11,116,222,0.18);
+      outline-offset:3px;
+    }
+
+    /* Make sure the email text is clearly selectable on mobile */
+    .email-button::selection{
+      background:rgba(255,255,255,0.25);
+      color:#fff;
+    }
+
+    /* small helper row */
+    .contact-row{
+      margin-top:14px;
       display:flex;
-      justify-content:space-between;
-      align-items:center;
       gap:12px;
+      align-items:center;
       flex-wrap:wrap;
     }
-    @media (max-width:640px){
-      .intro{flex-direction:row}
-      .badge{min-width:48px;height:48px;font-size:16px}
+
+    .note{
+      color:var(--muted);
+      font-size:0.92rem;
+    }
+
+    footer{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:0.9rem;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width:520px){
+      .card{ padding:16px; }
+      h1{ font-size:1.05rem; }
     }
   </style>
 </head>
 <body>
-  <div class="container" role="document" aria-labelledby="license-title">
-    <header>
-      <h1 id="license-title">License Terms Agreement</h1>
-      <p>Clear terms governing personal use, restrictions, ownership, enforcement, and commercial licensing.</p>
-    </header>
-
-    <main>
-      <div class="intro" aria-hidden="false">
-        <div class="badge">LT</div>
-        <div class="lead">
-          <h2>Summary</h2>
-          <p>This agreement explains permitted personal use, restrictions on 3D models and files, ownership rights, enforcement actions, and how to request a commercial license.</p>
+  <div class="wrap">
+    <article class="card" aria-labelledby="license-title">
+      <header>
+        <div>
+          <h1 id="license-title">License Terms Agreement</h1>
+          <div class="meta">Please read these terms carefully before using any purchased items.</div>
         </div>
-      </div>
+        <div class="contact-row" aria-hidden="false">
+          <!-- Email displayed and selectable; clicking opens the user's mail client -->
+          <a class="email-button" href="mailto:bulahan.belmar@gmail.com" aria-label="Email bulahan.belmar at gmail dot com">
+            bulahan.belmar@gmail.com
+          </a>
+        </div>
+      </header>
 
-      <hr class="sep" />
+      <section class="content" role="region" aria-labelledby="terms-heading">
+        <h2 id="terms-heading" style="font-size:1rem;margin:0 0 12px 0;">Terms</h2>
 
-      <ol class="terms" aria-label="License terms list">
-        <li>
-          <h3>1. Personal Use Only</h3>
-          <p>All items and files purchased from this shop are licensed solely for personal use.</p>
-          <p class="note"><strong>Commercial use prohibited</strong> — resale, reproduction, distribution, or incorporation into products for sale is not allowed unless you obtain prior written permission.</p>
-        </li>
+        <ol class="terms">
+          <li>
+            <h3>1. Personal Use Only</h3>
+            <p>All items and files purchased from this shop are licensed solely for personal use. Commercial use of any kind—including but not limited to resale, reproduction, distribution, or incorporation into products for sale—is strictly prohibited unless prior written permission is obtained.</p>
+          </li>
 
-        <li>
-          <h3>2. Restrictions on 3D Models and Files</h3>
-          <p>Any 3D model, or portion thereof, whether in digital or physical format, may not be:</p>
-          <ul class="restrictions" aria-label="Restrictions on 3D models">
-            <li>Shared or transmitted to others</li>
-            <li>Redistributed or uploaded to any platform</li>
-            <li>Remixed, altered, or duplicated for distribution</li>
-            <li>Sold, licensed, or otherwise monetized</li>
-          </ul>
-        </li>
+          <li>
+            <h3>2. Restrictions on 3D Models and Files</h3>
+            <p>Any 3D model, or portion thereof, whether in digital or physical format, may not be:</p>
+            <ul class="restrictions" aria-label="Restrictions list">
+              <li>Shared or transmitted to others</li>
+              <li>Redistributed or uploaded to any platform</li>
+              <li>Remixed, altered, or duplicated for distribution</li>
+              <li>Sold, licensed, or otherwise monetized</li>
+            </ul>
+          </li>
 
-        <li>
-          <h3>3. Ownership</h3>
-          <p>All items and files remain the intellectual property of <strong>[Insert Your Shop Name]</strong>.</p>
-          <p>Purchase grants the buyer a <strong>non-exclusive, non-transferable license</strong> for personal use only.</p>
-        </li>
+          <li>
+            <h3>3. Ownership</h3>
+            <p>All items and files remain the intellectual property of <strong>ko-fi.com/bmbulahan</strong>. Purchase grants the buyer a non-exclusive, non-transferable license for personal use only.</p>
+          </li>
 
-        <li>
-          <h3>4. Enforcement</h3>
-          <p>Violation of these terms may result in revocation of license, removal of access, and potential legal action.</p>
-        </li>
+          <li>
+            <h3>4. Enforcement</h3>
+            <p>Violation of these terms may result in revocation of license, removal of access, and potential legal action.</p>
+          </li>
 
-        <li>
-          <h3>5. Commercial Licensing Contact</h3>
-          <p>If you wish to use any item or file for commercial purposes, you must obtain a separate commercial license.</p>
-          <div class="contact">
-            <a class="mailto" href="mailto:bulahan.belmar@gmail.com">Contact for commercial license</a>
-            <span style="color:var(--muted);font-size:14px">Discuss licensing terms, fees, and permissions via email.</span>
-          </div>
-        </li>
+          <li>
+            <h3>5. Commercial Licensing Contact</h3>
+            <p>If you wish to use any item or file for commercial purposes, you must obtain a separate commercial license. Please contact me at the email shown above to discuss licensing terms, fees, and permissions.</p>
+          </li>
 
-        <li>
-          <h3>6. Agreement</h3>
-          <p>By purchasing, downloading, or using any item or file from this shop, you acknowledge that you have read, understood, and agreed to these License Terms.</p>
-        </li>
-      </ol>
-    </main>
+          <li>
+            <h3>6. Agreement</h3>
+            <p>By purchasing, downloading, or using any item or file from this shop, you acknowledge that you have read, understood, and agreed to these License Terms.</p>
+          </li>
+        </ol>
 
-    <footer>
-      <div>© <strong>[Insert Your Shop Name]</strong></div>
-      <div style="color:var(--muted)">Last updated: <strong>January 2026</strong></div>
-    </footer>
+        <footer>
+          <div class="note">Last updated: January 2026</div>
+        </footer>
+      </section>
+    </article>
   </div>
 </body>
 </html>
