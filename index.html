@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,237 +6,392 @@
   <title>License Terms Agreement</title>
   <style>
     :root{
-      --bg:#f6f8fb;
-      --card:#ffffff;
-      --accent:#0b74de;
-      --muted:#6b7280;
-      --border:#e6e9ef;
-      --radius:12px;
-      --max-width:900px;
-      --pad:24px;
-      --shadow: 0 6px 18px rgba(11,116,222,0.08);
+      --bg-1: #0f1724;
+      --bg-2: #07102a;
+      --card: #0f1724;
+      --glass: rgba(255,255,255,0.04);
+      --muted: #9aa4b2;
+      --accent: #6ee7b7;
+      --accent-2: #60a5fa;
+      --text: #e6eef8;
+      --radius: 14px;
+      --max-width: 1100px;
+      --pad: 22px;
+      --glass-border: rgba(255,255,255,0.06);
+      --shadow: 0 10px 30px rgba(2,6,23,0.6);
+      --glass-blur: 8px;
+      --transition: 240ms cubic-bezier(.2,.9,.3,1);
     }
 
-    html,body{
-      height:100%;
-      margin:0;
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-      background:linear-gradient(180deg,var(--bg),#eef3fb 60%);
-      color:#111827;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
+    html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: linear-gradient(180deg,#07102a 0%, #071b2f 50%, #0b2540 100%); color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+    a{color:inherit}
+    .container{max-width:var(--max-width);margin:36px auto;padding:18px;display:grid;grid-template-columns:320px 1fr;gap:20px;align-items:start;}
 
-    .wrap{
-      max-width:var(--max-width);
-      margin:48px auto;
-      padding:16px;
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:20px;
+      border:1px solid var(--glass-border);
+      backdrop-filter: blur(var(--glass-blur));
+      box-shadow:var(--shadow);
+      min-height:220px;
     }
+    .brand{
+      display:flex;gap:12px;align-items:center;margin-bottom:12px;
+    }
+    .logo{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#04263b;font-size:20px;box-shadow:0 6px 18px rgba(6,30,50,0.35);
+    }
+    .brand h1{font-size:1.05rem;margin:0}
+    .brand p{margin:0;color:var(--muted);font-size:0.9rem}
+
+    .panel .meta{margin-top:12px;color:var(--muted);font-size:0.92rem;line-height:1.45}
+
+    .email-row{display:flex;gap:10px;align-items:center;margin-top:16px}
+    .email-button{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.06);color:var(--text);font-weight:600;font-size:0.95rem;user-select:text;cursor:pointer;transition:transform var(--transition), box-shadow var(--transition);
+    }
+    .email-button:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+    .email-icon{width:18px;height:18px;opacity:0.95;display:inline-block}
+    .copy-btn{
+      display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#04263b;font-weight:700;border:none;cursor:pointer;box-shadow:0 8px 20px rgba(6,30,50,0.35);
+    }
+    .copy-btn:active{transform:translateY(1px)}
+
+    .small-note{font-size:0.85rem;color:var(--muted);margin-top:10px}
 
     .card{
-      background:var(--card);
-      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
       border-radius:var(--radius);
-      padding:var(--pad);
+      padding:22px;
+      border:1px solid var(--glass-border);
+      backdrop-filter: blur(var(--glass-blur));
       box-shadow:var(--shadow);
     }
 
-    header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:12px;
-    }
+    .card-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .title{display:flex;flex-direction:column;}
+    .title h2{margin:0;font-size:1.15rem}
+    .title p{margin:4px 0 0 0;color:var(--muted);font-size:0.95rem}
 
-    h1{
-      font-size:1.25rem;
-      margin:0;
-      letter-spacing:-0.2px;
-    }
+    .controls{display:flex;gap:10px;align-items:center}
+    .search{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 10px;border-radius:10px;color:var(--text);min-width:220px;}
+    .toggle-dark{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 10px;border-radius:10px;color:var(--text);cursor:pointer}
 
-    .meta{
-      color:var(--muted);
-      font-size:0.95rem;
-    }
-
-    .content{
-      margin-top:12px;
-      line-height:1.6;
-      color:#111827;
-    }
-
+    .accordion{margin-top:18px;display:grid;gap:12px}
     .section{
-      margin:18px 0;
+      border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      transition:transform var(--transition), box-shadow var(--transition);
+    }
+    .section[aria-expanded="true"]{box-shadow:0 18px 40px rgba(2,6,23,0.6);transform:translateY(-6px)}
+    .section-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;cursor:pointer;gap:12px;}
+    .section-title{display:flex;flex-direction:column}
+    .section-title strong{font-size:0.98rem}
+    .section-title span{font-size:0.86rem;color:var(--muted)}
+    .chev{width:36px;height:36px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);transition:transform var(--transition)}
+    .section[aria-expanded="true"] .chev{transform:rotate(180deg)}
+
+    .section-body{padding:0 18px 18px 18px;color:var(--text);line-height:1.6;max-height:0;overflow:hidden;transition:max-height var(--transition) cubic-bezier(.2,.9,.3,1)}
+    .section[aria-expanded="true"] .section-body{max-height:1200px;padding-top:12px}
+
+    .section-body p{margin:0 0 10px 0;color:#dbe9f8}
+    .section-body ul{margin:8px 0 0 1.1rem;color:#dbe9f8}
+    .section-body li{margin:6px 0}
+
+    .card-footer{margin-top:18px;color:var(--muted);font-size:0.9rem;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-size:0.85rem;color:var(--muted)}
+    .fade-in{animation:fadeIn .6s ease both}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+    /* Print styles: keep it clean and readable */
+    @media print {
+      body{background: #fff; color:#000}
+      .container{max-width:100%;display:block;padding:0}
+      .panel, .card{box-shadow:none;border:none;background:transparent;backdrop-filter:none}
+      .panel{display:none} /* hide left panel for print by default */
+      .card{padding:12mm}
+      .section{page-break-inside:avoid}
+      .section-body{max-height:none;overflow:visible;padding-top:12px}
+      .chev, .controls, .card-footer{display:none}
     }
 
-    .section h3{
-      margin:0 0 8px 0;
-      font-size:1rem;
-    }
-
-    .section p{
-      margin:0 0 8px 0;
-      color:#374151;
-    }
-
-    ul.restrictions{
-      margin:8px 0 0 1.25rem;
-      color:#374151;
-    }
-
-    .email-button{
-      display:inline-block;
-      padding:10px 14px;
-      background:linear-gradient(180deg,var(--accent),#0a63b8);
-      color:#fff;
-      text-decoration:none;
-      border-radius:8px;
-      font-weight:600;
-      font-size:0.95rem;
-      border:1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 4px 10px rgba(11,116,222,0.12);
-      transition:transform .08s ease, box-shadow .12s ease;
-      user-select:text;
-      -webkit-user-select:text;
-      -moz-user-select:text;
-      -ms-user-select:text;
-      cursor:pointer;
-    }
-
-    .email-button:active{ transform:translateY(1px); }
-    .email-button:focus{
-      outline:3px solid rgba(11,116,222,0.18);
-      outline-offset:3px;
-    }
-
-    .note{
-      color:var(--muted);
-      font-size:0.92rem;
-    }
-
-    footer{
-      margin-top:18px;
-      color:var(--muted);
-      font-size:0.9rem;
-    }
-
-    @media (max-width:520px){
-      .card{ padding:16px; }
-      h1{ font-size:1.05rem; }
+    @media (max-width:920px){
+      .container{grid-template-columns:1fr; padding:18px}
+      .panel{order:2}
+      .card{order:1}
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <article class="card" aria-labelledby="license-title">
-      <header>
+  <div class="container fade-in">
+    <aside class="panel" aria-labelledby="panel-title">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">LT</div>
         <div>
-          <h1 id="license-title">License Terms Agreement</h1>
-          <div class="meta">Please read these terms carefully before using any purchased items.</div>
+          <h1 id="panel-title">License Terms</h1>
+          <p>Clear, modern, and easy to update — edit <code>terms.json</code> to change content.</p>
         </div>
-        <div class="contact-row" aria-hidden="false">
-          <a id="emailLink" class="email-button" href="#" aria-label="Contact email">
-            loading...
-          </a>
-        </div>
-      </header>
+      </div>
 
-      <section id="terms" class="content" role="region" aria-labelledby="terms-heading">
-        <h2 id="terms-heading" style="font-size:1rem;margin:0 0 12px 0;">Terms</h2>
-        <div id="termsContainer" aria-live="polite">
-          <!-- content injected here -->
+      <div class="meta">
+        Keep these terms visible to buyers. Use the copy button to quickly share the contact email.
+      </div>
+
+      <div class="email-row" style="margin-top:14px">
+        <a id="emailLink" class="email-button" href="#" title="Send email">
+          <svg class="email-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3 6.5C3 5.67157 3.67157 5 4.5 5H19.5C20.3284 5 21 5.67157 21 6.5V17.5C21 18.3284 20.3284 19 19.5 19H4.5C3.67157 19 3 18.3284 3 17.5V6.5Z" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 6.5L12 12.5L3 6.5" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span id="emailText">loading...</span>
+        </a>
+
+        <button id="copyBtn" class="copy-btn" title="Copy email">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M9 9H20V20H9V9Z" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5 15H4C3.44772 15 3 14.5523 3 14V4C3 3.44772 3.44772 3 4 3H14C14.5523 3 15 3.44772 15 4V5" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="small-note">Tip: the email text is selectable so visitors can highlight and copy it manually if they prefer.</div>
+    </aside>
+
+    <main class="card" role="main" aria-labelledby="main-title">
+      <div class="card-header">
+        <div class="title">
+          <h2 id="main-title">License Terms Agreement</h2>
+          <p id="subtitle">Read the rules for personal and commercial use</p>
         </div>
 
-        <footer>
-          <div id="lastUpdated" class="note">Last updated: —</div>
-        </footer>
-      </section>
-    </article>
+        <div class="controls">
+          <input id="searchInput" class="search" placeholder="Search terms..." aria-label="Search terms" />
+          <div class="pill" id="lastUpdated">Last updated: —</div>
+        </div>
+      </div>
+
+      <div id="accordion" class="accordion" aria-live="polite" style="margin-top:12px">
+        <!-- Sections injected here -->
+      </div>
+
+      <div class="card-footer">
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <div class="note">By using items from this shop you agree to these terms.</div>
+          <div class="pill" id="sourceAttribution">Source: terms.json</div>
+        </div>
+
+        <!-- Print and Save PDF controls -->
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <button id="printBtn" class="copy-btn" title="Print page" style="background:linear-gradient(180deg,#ffffff,#e6f7ff);color:#04263b;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9V3h12v6" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 14H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-2" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="6" y="14" width="12" height="6" rx="1" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <button id="savePdfBtn" class="copy-btn" title="Save as PDF" style="background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#04263b;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2v8" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 10l5 5 5-5" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </main>
   </div>
 
-  <script>
-    // Path to the editable file. Edit this JSON file to change the text.
-    const SOURCE = 'terms.json';
+  <!-- html2pdf library for client-side PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js" integrity="sha512-YcsIPb0bq3qkq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    function createParagraph(text){
-      const p = document.createElement('p');
-      p.textContent = text;
-      return p;
+  <script>
+    const SOURCE = 'terms.json';
+    const emailLink = document.getElementById('emailLink');
+    const emailText = document.getElementById('emailText');
+    const copyBtn = document.getElementById('copyBtn');
+    const accordion = document.getElementById('accordion');
+    const lastUpdatedEl = document.getElementById('lastUpdated');
+    const searchInput = document.getElementById('searchInput');
+    const printBtn = document.getElementById('printBtn');
+    const savePdfBtn = document.getElementById('savePdfBtn');
+
+    function el(tag, props = {}, ...children){
+      const node = document.createElement(tag);
+      Object.entries(props).forEach(([k,v]) => {
+        if (k === 'class') node.className = v;
+        else if (k === 'html') node.innerHTML = v;
+        else node.setAttribute(k, v);
+      });
+      children.forEach(c => { if (typeof c === 'string') node.appendChild(document.createTextNode(c)); else if (c) node.appendChild(c); });
+      return node;
     }
 
-    function createList(items){
-      const ul = document.createElement('ul');
-      ul.className = 'restrictions';
-      items.forEach(it => {
-        const li = document.createElement('li');
-        li.textContent = it;
-        ul.appendChild(li);
-      });
-      return ul;
+    function renderSection(idx, sec){
+      const section = el('section', {'class':'section', 'aria-expanded':'false', 'data-index': idx});
+      const header = el('div', {'class':'section-header', 'role':'button', 'tabindex':'0', 'aria-controls':'body-'+idx});
+      const title = el('div', {'class':'section-title'});
+      title.appendChild(el('strong', {}, sec.title || `Section ${idx+1}`));
+      if (sec.subtitle) title.appendChild(el('span', {}, sec.subtitle));
+      else if (sec.body && typeof sec.body === 'string') title.appendChild(el('span', {}, sec.body.slice(0,120) + (sec.body.length>120 ? '…' : '')));
+      const chev = el('div', {'class':'chev', 'aria-hidden':'true'}, el('svg', {viewBox:'0 0 24 24', width:18, height:18, fill:'none', xmlns:'http://www.w3.org/2000/svg'}, el('path', {d:'M6 9l6 6 6-6', stroke:'rgba(255,255,255,0.9)', 'stroke-width':'1.6', 'stroke-linecap':'round', 'stroke-linejoin':'round'})));
+      header.appendChild(title);
+      header.appendChild(chev);
+
+      const body = el('div', {'class':'section-body', 'id':'body-'+idx});
+      if (Array.isArray(sec.body)){
+        sec.body.forEach(p => body.appendChild(el('p', {}, p)));
+      } else if (sec.body && sec.body.type === 'list' && Array.isArray(sec.body.items)){
+        if (sec.body.intro) body.appendChild(el('p', {}, sec.body.intro));
+        const ul = el('ul');
+        sec.body.items.forEach(it => ul.appendChild(el('li', {}, it)));
+        body.appendChild(ul);
+      } else if (typeof sec.body === 'string'){
+        body.appendChild(el('p', {}, sec.body));
+      } else {
+        body.appendChild(el('p', {}, 'No content.'));
+      }
+
+      function toggle(open){
+        const isOpen = section.getAttribute('aria-expanded') === 'true';
+        section.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      }
+      header.addEventListener('click', () => toggle());
+      header.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+
+      section.appendChild(header);
+      section.appendChild(body);
+      return section;
     }
 
     function renderTerms(data){
-      const container = document.getElementById('termsContainer');
-      container.innerHTML = '';
+      document.getElementById('main-title').textContent = data.title || 'License Terms Agreement';
+      document.getElementById('subtitle').textContent = data.subtitle || 'Read the rules for personal and commercial use';
+      lastUpdatedEl.textContent = 'Last updated: ' + (data.lastUpdated || '—');
 
-      if (data.sections && Array.isArray(data.sections)){
-        data.sections.forEach((sec, idx) => {
-          const wrap = document.createElement('div');
-          wrap.className = 'section';
-          const h = document.createElement('h3');
-          h.textContent = (idx + 1) + '. ' + sec.title;
-          wrap.appendChild(h);
-
-          // body can be array of paragraphs or an object with list
-          if (Array.isArray(sec.body)){
-            sec.body.forEach(b => {
-              wrap.appendChild(createParagraph(b));
-            });
-          } else if (sec.body && sec.body.type === 'list' && Array.isArray(sec.body.items)){
-            // optional intro text
-            if (sec.body.intro) wrap.appendChild(createParagraph(sec.body.intro));
-            wrap.appendChild(createList(sec.body.items));
-          } else if (typeof sec.body === 'string'){
-            wrap.appendChild(createParagraph(sec.body));
-          }
-
-          container.appendChild(wrap);
-        });
-      } else {
-        container.appendChild(createParagraph('No terms available.'));
-      }
-
-      // email
       const email = data.contact && data.contact.email ? data.contact.email : '';
-      const emailLink = document.getElementById('emailLink');
       if (email){
         emailLink.href = 'mailto:' + email;
-        emailLink.textContent = email;
+        emailText.textContent = email;
         emailLink.setAttribute('aria-label', 'Email ' + email);
       } else {
         emailLink.href = '#';
-        emailLink.textContent = 'contact';
+        emailText.textContent = 'contact';
       }
 
-      // last updated
-      const last = data.lastUpdated || '—';
-      document.getElementById('lastUpdated').textContent = 'Last updated: ' + last;
+      accordion.innerHTML = '';
+      if (Array.isArray(data.sections)){
+        data.sections.forEach((s, i) => {
+          accordion.appendChild(renderSection(i, s));
+        });
+      } else {
+        accordion.appendChild(el('div', {}, 'No sections found in terms.json'));
+      }
     }
 
-    // Fetch the JSON file and render. If fetch fails, show fallback text.
-    fetch(SOURCE, {cache: "no-store"})
+    fetch(SOURCE, {cache:'no-store'})
       .then(resp => {
-        if (!resp.ok) throw new Error('Failed to load terms.json');
+        if (!resp.ok) throw new Error('Network response not ok');
         return resp.json();
       })
       .then(json => renderTerms(json))
       .catch(err => {
-        const container = document.getElementById('termsContainer');
-        container.innerHTML = '';
-        container.appendChild(createParagraph('Could not load external terms. You can still edit terms.json in the same folder and reload the page.'));
+        accordion.innerHTML = '';
+        accordion.appendChild(el('div', {}, 'Could not load terms.json. If you opened the file directly, run a local server or embed the JSON into the page.'));
         console.error(err);
       });
+
+    copyBtn.addEventListener('click', async () => {
+      const text = emailText.textContent || '';
+      try {
+        await navigator.clipboard.writeText(text);
+        copyBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#04263b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        setTimeout(() => {
+          copyBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 9H20V20H9V9Z" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 15H4C3.44772 15 3 14.5523 3 14V4C3 3.44772 3.44772 3 4 3H14C14.5523 3 15 3.44772 15 4V5" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        }, 1400);
+      } catch (e) {
+        const range = document.createRange();
+        range.selectNodeContents(emailText);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+    });
+
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.trim().toLowerCase();
+      const sections = Array.from(accordion.querySelectorAll('.section'));
+      sections.forEach(sec => {
+        const title = sec.querySelector('.section-title strong').textContent.toLowerCase();
+        const body = sec.querySelector('.section-body').textContent.toLowerCase();
+        const match = !q || title.includes(q) || body.includes(q);
+        sec.style.display = match ? '' : 'none';
+      });
+    });
+
+    // Print button: opens browser print dialog
+    printBtn.addEventListener('click', () => {
+      // Ensure all sections are expanded for a complete print
+      const sections = accordion.querySelectorAll('.section');
+      sections.forEach(s => s.setAttribute('aria-expanded', 'true'));
+      // Small delay to allow expansion animation to finish
+      setTimeout(() => window.print(), 220);
+    });
+
+    // Save as PDF: uses html2pdf to generate a PDF of the main card
+    savePdfBtn.addEventListener('click', async () => {
+      const card = document.querySelector('.card');
+      if (!card) return;
+
+      // Expand all sections so PDF captures full content
+      const sections = accordion.querySelectorAll('.section');
+      sections.forEach(s => s.setAttribute('aria-expanded', 'true'));
+
+      // Build filename from title and date
+      const title = (document.getElementById('main-title').textContent || 'terms').replace(/\s+/g, '_').toLowerCase();
+      const date = new Date().toISOString().slice(0,10);
+      const filename = `${title}_${date}.pdf`;
+
+      // html2pdf options tuned for readable output
+      const opt = {
+        margin:       [12, 12, 12, 12], // top, left, bottom, right in mm
+        filename:     filename,
+        image:        { type: 'jpeg', quality: 0.95 },
+        html2canvas:  { scale: 2, useCORS: true, logging: false },
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+
+      // Temporarily clone the card into a clean container to avoid side effects from the UI
+      const clone = card.cloneNode(true);
+      // Remove interactive controls from clone (buttons, search, etc.)
+      clone.querySelectorAll('.controls, .chev, .copy-btn, .email-row, .card-footer .copy-btn').forEach(n => n && n.remove());
+      // Ensure body sections are fully visible
+      clone.querySelectorAll('.section-body').forEach(b => b.style.maxHeight = 'none');
+
+      const wrapper = document.createElement('div');
+      wrapper.style.padding = '12mm';
+      wrapper.style.background = '#ffffff';
+      wrapper.style.color = '#000';
+      wrapper.appendChild(clone);
+
+      // Generate PDF and trigger download
+      try {
+        html2pdf().set(opt).from(wrapper).save();
+      } catch (err) {
+        console.error('PDF generation failed', err);
+        // Fallback: open print dialog
+        window.print();
+      }
+    });
+
+    // Open first section by default after content loads
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const first = accordion.querySelector('.section');
+        if (first) first.setAttribute('aria-expanded', 'true');
+      }, 300);
+    });
   </script>
 </body>
 </html>
