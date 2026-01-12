@@ -39,14 +39,21 @@
   .license-text ol{padding-left:18px;margin:8px 0 0 0;color:var(--muted)}
   .license-text li{margin:12px 0}
   .controls{display:flex;gap:10px;align-items:center;margin-top:14px}
-  .download-btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#4aa6ff);color:#042033;font-weight:600;border:none;cursor:pointer}
-  .download-small{width:36px;height:36px;border-radius:8px;padding:0;display:inline-grid;place-items:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.03);cursor:pointer;color:var(--accent)}
+  .print-icon{
+    width:40px;height:40px;border-radius:10px;display:inline-grid;place-items:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.03);cursor:pointer;color:var(--accent);
+  }
   footer{margin-top:18px;color:var(--muted);font-size:13px}
   @media (max-width:720px){
     .top-row{flex-direction:column;align-items:flex-start}
     .spacer{display:none}
     .email-text,.shop-text{font-size:13px}
-    .download-btn{font-size:13px;padding:8px 10px}
+  }
+
+  /* Print styles: hide everything except the license card when printing */
+  @media print {
+    body * { visibility: hidden; }
+    #printableCard, #printableCard * { visibility: visible; }
+    #printableCard { position: absolute; left: 0; top: 0; width: 100%; }
   }
 </style>
 </head>
@@ -91,19 +98,12 @@
         <div class="license-text" id="licenseContent"></div>
 
         <div class="controls">
-          <button id="downloadPdfBtn" class="download-btn" aria-label="Download license as PDF">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
-              <path d="M12 3v12" stroke="#042033" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M8 11l4 4 4-4" stroke="#042033" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="#042033" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Download PDF
-          </button>
-
-          <button id="downloadSmallBtn" class="download-small" title="Download PDF (small)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
-              <path d="M12 3v12" stroke="#6fbfff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M8 11l4 4 4-4" stroke="#6fbfff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Print button: icon only -->
+          <button id="printBtn" class="print-icon" aria-label="Print license">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <path d="M6 9V3h12v6" stroke="#6fb8ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="3" y="9" width="18" height="8" rx="2" stroke="#6fb8ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 18v3h10v-3" stroke="#6fb8ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
         </div>
@@ -114,9 +114,6 @@
       </footer>
     </main>
   </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <script>
 (async function(){
@@ -173,54 +170,52 @@
     window.open(data.shop, '_blank', 'noopener');
   });
 
-  // PDF generation
-  async function generatePdfAndSave(filename = 'license-terms.pdf') {
+  // Print: open a new window with only the license card content and trigger print
+  document.getElementById('printBtn').addEventListener('click', () => {
     const card = document.getElementById('licenseCard');
-    const clone = card.cloneNode(true);
-    clone.style.width = '800px';
-    clone.style.padding = '28px';
-    clone.style.background = '#07243f';
-    clone.style.color = '#eaf6ff';
-    clone.querySelectorAll('a').forEach(a => a.style.color = '#bfe9ff');
+    const styles = Array.from(document.querySelectorAll('style, link[rel="stylesheet"]'))
+      .map(node => node.outerHTML).join('\n');
 
-    const off = document.createElement('div');
-    off.style.position = 'fixed';
-    off.style.left = '-9999px';
-    off.style.top = '0';
-    off.appendChild(clone);
-    document.body.appendChild(off);
+    // Build printable HTML
+    const printable = `
+      <!doctype html>
+      <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>${escapeHtml(data.title || 'License')}</title>
+        <style>
+          body{margin:20px;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;color:#0b2340;background:#fff}
+          .card{padding:20px;border-radius:8px;border:1px solid #e6eef6;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
+          h1{font-size:18px;margin:0 0 8px 0;color:#07243f}
+          .muted{color:#4b6b86;font-size:13px;margin-bottom:12px}
+          .license-text{color:#07243f;line-height:1.6;font-size:13px}
+          .license-text ol{padding-left:18px}
+        </style>
+      </head>
+      <body>
+        <div class="card" id="printableCard">
+          <h1>${escapeHtml(data.title || '')}</h1>
+          <div class="muted">Last update: ${escapeHtml(formatDateString(data.lastUpdate || ''))}</div>
+          <div class="license-text">${data.licenseHtml || ''}</div>
+          <div style="margin-top:14px;color:#4b6b86;font-size:12px">${escapeHtml(data.footerNote || '')}</div>
+        </div>
+        <script>
+          window.onload = function(){ setTimeout(()=>{ window.print(); window.close(); }, 120); };
+        </script>
+      </body>
+      </html>
+    `;
 
-    try {
-      const canvas = await html2canvas(clone, {scale:2, backgroundColor:null, useCORS:true});
-      const imgData = canvas.toDataURL('image/png');
-      const { jsPDF } = window.jspdf;
-      const pdf = new jsPDF({orientation:'portrait', unit:'pt', format:'a4'});
-      const pageWidth = pdf.internal.pageSize.getWidth();
-      const pageHeight = pdf.internal.pageSize.getHeight();
-      const margin = 28;
-      const availableWidth = pageWidth - margin*2;
-
-      const imgProps = await new Promise(resolve => {
-        const img = new Image();
-        img.onload = () => resolve({ w: img.width, h: img.height });
-        img.src = imgData;
-      });
-
-      const ratio = Math.min(availableWidth / imgProps.w, (pageHeight - margin*2) / imgProps.h);
-      const imgWidth = imgProps.w * ratio;
-      const imgHeight = imgProps.h * ratio;
-      pdf.addImage(imgData, 'PNG', margin, margin, imgWidth, imgHeight);
-      pdf.save(filename);
-    } catch (err) {
-      console.error('PDF generation failed', err);
-      alert('Could not generate PDF. Please try again in a modern browser.');
-    } finally {
-      document.body.removeChild(off);
+    const w = window.open('', '_blank', 'noopener');
+    if (!w) {
+      alert('Popup blocked. Please allow popups for this site to print.');
+      return;
     }
-  }
-
-  document.getElementById('downloadPdfBtn').addEventListener('click', () => generatePdfAndSave('license-terms.pdf'));
-  document.getElementById('downloadSmallBtn').addEventListener('click', () => generatePdfAndSave('license-terms.pdf'));
+    w.document.open();
+    w.document.write(printable);
+    w.document.close();
+  });
 
   function formatDateString(input){
     if (!input) return '';
@@ -232,6 +227,12 @@
     const mon = monthNames[d.getMonth()];
     const yr = d.getFullYear();
     return `${day}-${mon}-${yr}`;
+  }
+
+  function escapeHtml(str){
+    return String(str || '').replace(/[&<>"']/g, function(m){
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]);
+    });
   }
 })();
 </script>
