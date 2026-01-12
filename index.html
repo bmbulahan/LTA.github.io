@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,7 +21,7 @@
     html,body{
       height:100%;
       margin:0;
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
       background:linear-gradient(180deg,var(--bg),#eef3fb 60%);
       color:#111827;
       -webkit-font-smoothing:antialiased;
@@ -66,37 +67,25 @@
       color:#111827;
     }
 
-    ol.terms{
-      padding-left:1.25rem;
-      margin:0;
-    }
-
-    ol.terms > li{
+    .section{
       margin:18px 0;
     }
 
-    ol.terms li h3{
-      margin:0 0 6px 0;
+    .section h3{
+      margin:0 0 8px 0;
       font-size:1rem;
     }
 
-    ol.terms li p{
+    .section p{
       margin:0 0 8px 0;
       color:#374151;
     }
 
-    /* nested list for restrictions */
-    .restrictions{
-      margin:8px 0 0 0;
-      padding-left:1rem;
+    ul.restrictions{
+      margin:8px 0 0 1.25rem;
       color:#374151;
     }
 
-    .restrictions li{
-      margin:6px 0;
-    }
-
-    /* Email button styled as selectable button */
     .email-button{
       display:inline-block;
       padding:10px 14px;
@@ -109,7 +98,6 @@
       border:1px solid rgba(255,255,255,0.12);
       box-shadow: 0 4px 10px rgba(11,116,222,0.12);
       transition:transform .08s ease, box-shadow .12s ease;
-      /* allow text selection so the email can be highlighted/copied */
       user-select:text;
       -webkit-user-select:text;
       -moz-user-select:text;
@@ -123,21 +111,6 @@
       outline-offset:3px;
     }
 
-    /* Make sure the email text is clearly selectable on mobile */
-    .email-button::selection{
-      background:rgba(255,255,255,0.25);
-      color:#fff;
-    }
-
-    /* small helper row */
-    .contact-row{
-      margin-top:14px;
-      display:flex;
-      gap:12px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-
     .note{
       color:var(--muted);
       font-size:0.92rem;
@@ -149,7 +122,6 @@
       font-size:0.9rem;
     }
 
-    /* Responsive tweaks */
     @media (max-width:520px){
       .card{ padding:16px; }
       h1{ font-size:1.05rem; }
@@ -165,59 +137,107 @@
           <div class="meta">Please read these terms carefully before using any purchased items.</div>
         </div>
         <div class="contact-row" aria-hidden="false">
-          <!-- Email displayed and selectable; clicking opens the user's mail client -->
-          <a class="email-button" href="mailto:bulahan.belmar@gmail.com" aria-label="Email bulahan.belmar at gmail dot com">
-            bulahan.belmar@gmail.com
+          <a id="emailLink" class="email-button" href="#" aria-label="Contact email">
+            loading...
           </a>
         </div>
       </header>
 
-      <section class="content" role="region" aria-labelledby="terms-heading">
+      <section id="terms" class="content" role="region" aria-labelledby="terms-heading">
         <h2 id="terms-heading" style="font-size:1rem;margin:0 0 12px 0;">Terms</h2>
-
-        <ol class="terms">
-          <li>
-            <h3>1. Personal Use Only</h3>
-            <p>All items and files purchased from this shop are licensed solely for personal use. Commercial use of any kind—including but not limited to resale, reproduction, distribution, or incorporation into products for sale—is strictly prohibited unless prior written permission is obtained.</p>
-          </li>
-
-          <li>
-            <h3>2. Restrictions on 3D Models and Files</h3>
-            <p>Any 3D model, or portion thereof, whether in digital or physical format, may not be:</p>
-            <ul class="restrictions" aria-label="Restrictions list">
-              <li>Shared or transmitted to others</li>
-              <li>Redistributed or uploaded to any platform</li>
-              <li>Remixed, altered, or duplicated for distribution</li>
-              <li>Sold, licensed, or otherwise monetized</li>
-            </ul>
-          </li>
-
-          <li>
-            <h3>3. Ownership</h3>
-            <p>All items and files remain the intellectual property of <strong>ko-fi.com/bmbulahan</strong>. Purchase grants the buyer a non-exclusive, non-transferable license for personal use only.</p>
-          </li>
-
-          <li>
-            <h3>4. Enforcement</h3>
-            <p>Violation of these terms may result in revocation of license, removal of access, and potential legal action.</p>
-          </li>
-
-          <li>
-            <h3>5. Commercial Licensing Contact</h3>
-            <p>If you wish to use any item or file for commercial purposes, you must obtain a separate commercial license. Please contact me at the email shown above to discuss licensing terms, fees, and permissions.</p>
-          </li>
-
-          <li>
-            <h3>6. Agreement</h3>
-            <p>By purchasing, downloading, or using any item or file from this shop, you acknowledge that you have read, understood, and agreed to these License Terms.</p>
-          </li>
-        </ol>
+        <div id="termsContainer" aria-live="polite">
+          <!-- content injected here -->
+        </div>
 
         <footer>
-          <div class="note">Last updated: January 2026</div>
+          <div id="lastUpdated" class="note">Last updated: —</div>
         </footer>
       </section>
     </article>
   </div>
+
+  <script>
+    // Path to the editable file. Edit this JSON file to change the text.
+    const SOURCE = 'terms.json';
+
+    function createParagraph(text){
+      const p = document.createElement('p');
+      p.textContent = text;
+      return p;
+    }
+
+    function createList(items){
+      const ul = document.createElement('ul');
+      ul.className = 'restrictions';
+      items.forEach(it => {
+        const li = document.createElement('li');
+        li.textContent = it;
+        ul.appendChild(li);
+      });
+      return ul;
+    }
+
+    function renderTerms(data){
+      const container = document.getElementById('termsContainer');
+      container.innerHTML = '';
+
+      if (data.sections && Array.isArray(data.sections)){
+        data.sections.forEach((sec, idx) => {
+          const wrap = document.createElement('div');
+          wrap.className = 'section';
+          const h = document.createElement('h3');
+          h.textContent = (idx + 1) + '. ' + sec.title;
+          wrap.appendChild(h);
+
+          // body can be array of paragraphs or an object with list
+          if (Array.isArray(sec.body)){
+            sec.body.forEach(b => {
+              wrap.appendChild(createParagraph(b));
+            });
+          } else if (sec.body && sec.body.type === 'list' && Array.isArray(sec.body.items)){
+            // optional intro text
+            if (sec.body.intro) wrap.appendChild(createParagraph(sec.body.intro));
+            wrap.appendChild(createList(sec.body.items));
+          } else if (typeof sec.body === 'string'){
+            wrap.appendChild(createParagraph(sec.body));
+          }
+
+          container.appendChild(wrap);
+        });
+      } else {
+        container.appendChild(createParagraph('No terms available.'));
+      }
+
+      // email
+      const email = data.contact && data.contact.email ? data.contact.email : '';
+      const emailLink = document.getElementById('emailLink');
+      if (email){
+        emailLink.href = 'mailto:' + email;
+        emailLink.textContent = email;
+        emailLink.setAttribute('aria-label', 'Email ' + email);
+      } else {
+        emailLink.href = '#';
+        emailLink.textContent = 'contact';
+      }
+
+      // last updated
+      const last = data.lastUpdated || '—';
+      document.getElementById('lastUpdated').textContent = 'Last updated: ' + last;
+    }
+
+    // Fetch the JSON file and render. If fetch fails, show fallback text.
+    fetch(SOURCE, {cache: "no-store"})
+      .then(resp => {
+        if (!resp.ok) throw new Error('Failed to load terms.json');
+        return resp.json();
+      })
+      .then(json => renderTerms(json))
+      .catch(err => {
+        const container = document.getElementById('termsContainer');
+        container.innerHTML = '';
+        container.appendChild(createParagraph('Could not load external terms. You can still edit terms.json in the same folder and reload the page.'));
+        console.error(err);
+      });
+  </script>
 </body>
 </html>
