@@ -16,12 +16,11 @@
       --glass-border: rgba(255,255,255,0.04);
       --shadow: 0 10px 30px rgba(2,6,23,0.6);
       --transition: 220ms cubic-bezier(.2,.9,.3,1);
-      --control-height: 36px; /* unified control height for search and last-updated */
-      --btn-size: 36px;       /* smaller square action buttons */
-      --box-height: 36px;     /* shorter text boxes for email/shop */
+      --control-height: 36px;
+      --btn-size: 36px;
+      --box-height: 36px;
     }
 
-    /* Base */
     html,body{
       height:100%;
       margin:0;
@@ -42,7 +41,6 @@
       align-items:start;
     }
 
-    /* Left panel */
     .panel{
       background: var(--dark-blue);
       border-radius:var(--radius);
@@ -53,11 +51,10 @@
     }
 
     .brand{display:flex;gap:12px;align-items:center;margin-bottom:12px;}
-    /* LT box: square with subtle rounding */
     .logo{
       width:64px;
       height:64px;
-      border-radius:6px; /* square-ish with small radius */
+      border-radius:6px;
       background:linear-gradient(135deg,var(--accent),var(--accent-2));
       display:flex;
       align-items:center;
@@ -73,11 +70,9 @@
     .brand p{margin:0;color:var(--muted);font-size:0.9rem}
     .panel .meta{margin-top:10px;color:var(--muted);font-size:0.92rem;line-height:1.45}
 
-    /* Left rows */
     .left-rows{display:flex;flex-direction:column;gap:10px;margin-top:12px}
     .row{display:flex;gap:10px;align-items:center;}
 
-    /* Text boxes (email and shop) - identical shorter sizing and styling */
     .text-box{
       flex:1;
       min-width:0;
@@ -98,7 +93,6 @@
       align-items:center;
     }
 
-    /* Action buttons (copy email and open shop) - smaller square and aligned */
     .action-btn{
       width:var(--btn-size);
       height:var(--btn-size);
@@ -118,7 +112,6 @@
 
     .small-note{font-size:0.84rem;color:var(--muted);margin-top:8px}
 
-    /* Main card */
     .card{
       background: var(--dark-blue);
       border-radius:var(--radius);
@@ -132,7 +125,6 @@
     .title h2{margin:0;font-size:1.15rem}
     .title p{margin:4px 0 0 0;color:var(--muted);font-size:0.95rem}
 
-    /* Controls: search input and last-updated box aligned */
     .controls{display:flex;gap:10px;align-items:center}
     .search{
       background:transparent;
@@ -146,7 +138,6 @@
       font-size:0.95rem;
     }
 
-    /* Last-updated box: same height as search, with label and date stacked */
     .last-updated-box{
       display:flex;
       flex-direction:column;
@@ -165,7 +156,6 @@
     .last-updated-box .label{font-size:0.82rem;color:var(--muted);line-height:1}
     .last-updated-box .date{font-size:0.92rem;color:var(--text);font-weight:600;line-height:1}
 
-    /* Sections always visible */
     .accordion{margin-top:18px;display:grid;gap:12px}
     .section{border-radius:12px;overflow:visible;border:1px solid rgba(255,255,255,0.03);background: rgba(255,255,255,0.01);}
     .section-header{display:flex;align-items:flex-start;justify-content:space-between;padding:14px 16px;gap:12px;cursor:default;}
@@ -180,7 +170,6 @@
     .card-footer{margin-top:18px;color:var(--muted);font-size:0.9rem;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
     .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-size:0.85rem;color:var(--muted)}
 
-    /* Save-as-PDF icon button in footer (small icon-only button) */
     .pdf-icon-btn{
       width:40px;
       height:40px;
@@ -195,7 +184,6 @@
       color:#04263b;
     }
 
-    /* Print styles */
     @media print {
       body{background:#fff;color:#000}
       .container{max-width:100%;display:block;padding:0}
@@ -221,17 +209,16 @@
   <div class="container">
     <aside class="panel" aria-labelledby="panel-title">
       <div class="brand">
-        <div class="logo" aria-hidden="true">LT</div>
+        <div id="logoText" class="logo" aria-hidden="true">LT</div>
         <div>
           <h1 id="panel-title">License Terms</h1>
-          <p>Clear, modern, and easy to update — edit <code>terms.json</code> to change content.</p>
+          <p id="panel-subtitle">Clear, modern, and easy to update — edit terms.json to change content.</p>
         </div>
       </div>
 
-      <div class="meta">Keep these terms visible to buyers. The email and shop link are selectable and copyable.</div>
+      <div id="panel-meta" class="meta">Keep these terms visible to buyers. The email and shop link are selectable and copyable.</div>
 
       <div class="left-rows">
-        <!-- Email row: text box + copy button -->
         <div class="row" aria-label="Contact email">
           <div id="emailText" class="text-box" title="Contact email (select or copy)">loading...</div>
           <button id="copyBtn" class="action-btn copy-btn" title="Copy email" aria-label="Copy email">
@@ -242,10 +229,9 @@
           </button>
         </div>
 
-        <!-- Shop row: text box + open-in-new-tab button -->
         <div class="row" aria-label="Shop link">
           <div id="shopText" class="text-box" title="Shop URL (select or copy)">https://ko-fi.com/bmbulahan/shop</div>
-          <a id="shopBtn" class="action-btn shop-btn" href="https://ko-fi.com/bmbulahan/shop" target="_blank" rel="noopener noreferrer" title="Open shop in new tab" aria-label="Open shop in new tab">
+          <a id="shopBtn" class="action-btn shop-btn" href="#" target="_blank" rel="noopener noreferrer" title="Open shop in new tab" aria-label="Open shop in new tab">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M14 3h7v7" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M10 14L21 3" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -254,7 +240,7 @@
           </a>
         </div>
 
-        <div class="small-note">Tip: highlight the email or shop link to copy, or use the copy button for the email.</div>
+        <div id="panel-tip" class="small-note">Tip: highlight the email or shop link to copy, or use the copy button for the email.</div>
       </div>
     </aside>
 
@@ -274,18 +260,15 @@
         </div>
       </div>
 
-      <div id="accordion" class="accordion" aria-live="polite">
-        <!-- Sections injected here -->
-      </div>
+      <div id="accordion" class="accordion" aria-live="polite"></div>
 
       <div class="card-footer">
         <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-          <div class="note">By using items from this shop you agree to these terms.</div>
+          <div id="agreementNote" class="note">By using items from this shop you agree to these terms.</div>
           <div class="pill" id="sourceAttribution">Source: terms.json</div>
         </div>
 
         <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-          <!-- Save as PDF icon-only button -->
           <button id="savePdfBtn" class="pdf-icon-btn" title="Save as PDF" aria-label="Save as PDF">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M12 2v8" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -298,18 +281,30 @@
     </main>
   </div>
 
-  <!-- html2pdf library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script>
     const SOURCE = 'terms.json';
-    const emailText = document.getElementById('emailText');
+
+    const logoTextEl = document.getElementById('logoText');
+    const panelTitleEl = document.getElementById('panel-title');
+    const panelSubtitleEl = document.getElementById('panel-subtitle');
+    const panelMetaEl = document.getElementById('panel-meta');
+    const panelTipEl = document.getElementById('panel-tip');
+
+    const emailTextEl = document.getElementById('emailText');
     const copyBtn = document.getElementById('copyBtn');
-    const shopText = document.getElementById('shopText');
+    const shopTextEl = document.getElementById('shopText');
     const shopBtn = document.getElementById('shopBtn');
-    const accordion = document.getElementById('accordion');
-    const lastUpdatedEl = document.getElementById('lastUpdated');
+
+    const mainTitleEl = document.getElementById('main-title');
+    const subtitleEl = document.getElementById('subtitle');
     const searchInput = document.getElementById('searchInput');
+    const lastUpdatedEl = document.getElementById('lastUpdated');
+    const accordion = document.getElementById('accordion');
+
+    const agreementNoteEl = document.getElementById('agreementNote');
+    const sourceAttributionEl = document.getElementById('sourceAttribution');
     const savePdfBtn = document.getElementById('savePdfBtn');
 
     function el(tag, props = {}, ...children){
@@ -321,6 +316,16 @@
       });
       children.forEach(c => { if (typeof c === 'string') node.appendChild(document.createTextNode(c)); else if (c) node.appendChild(c); });
       return node;
+    }
+
+    function formatWithWeekday(raw){
+      let d = new Date(raw);
+      if (isNaN(d)) {
+        const tryMonthYear = new Date(raw + ' 1');
+        if (!isNaN(tryMonthYear)) d = tryMonthYear;
+        else d = new Date();
+      }
+      return d.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     }
 
     function renderSection(idx, sec){
@@ -352,35 +357,37 @@
       return section;
     }
 
-    function formatWithWeekday(raw){
-      // Try to parse raw string; if not parseable, fallback to today
-      let d = new Date(raw);
-      if (isNaN(d)) {
-        // Try parsing month-year like "January 2026" by adding day 1
-        const tryMonthYear = new Date(raw + ' 1');
-        if (!isNaN(tryMonthYear)) d = tryMonthYear;
-        else d = new Date();
-      }
-      // Format with weekday, e.g., "Monday, 12 January 2026"
-      return d.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    }
-
     function renderTerms(data){
-      document.getElementById('main-title').textContent = data.title || 'License Terms Agreement';
-      document.getElementById('subtitle').textContent = data.subtitle || 'Read the rules for personal and commercial use';
+      // Brand and UI text
+      logoTextEl.textContent = data.brand && data.brand.logoText ? data.brand.logoText : 'LT';
+      panelTitleEl.textContent = data.brand && data.brand.brandTitle ? data.brand.brandTitle : 'License Terms';
+      panelSubtitleEl.textContent = data.brand && data.brand.brandSubtitle ? data.brand.brandSubtitle : '';
+      panelMetaEl.textContent = data.brand && data.brand.meta ? data.brand.meta : '';
+      panelTipEl.textContent = data.brand && data.brand.tip ? data.brand.tip : '';
 
-      // Last updated: prefer data.lastUpdated if present; format to include weekday
+      // Main title and subtitle
+      mainTitleEl.textContent = data.title || 'License Terms Agreement';
+      subtitleEl.textContent = data.subtitle || '';
+
+      // Last updated (format with weekday)
       const rawLast = data.lastUpdated || '';
       lastUpdatedEl.textContent = rawLast ? formatWithWeekday(rawLast) : formatWithWeekday(new Date());
 
-      // Email
-      const email = data.contact && data.contact.email ? data.contact.email : 'bulahan.belmar@gmail.com';
-      emailText.textContent = email;
+      // Contact
+      const email = data.contact && data.contact.email ? data.contact.email : '';
+      emailTextEl.textContent = email;
 
-      // Shop link (from JSON if present)
-      const shopFromJson = data.contact && data.contact.shop ? data.contact.shop : 'https://ko-fi.com/bmbulahan/shop';
-      shopText.textContent = shopFromJson;
-      shopBtn.href = shopFromJson;
+      const shop = data.contact && data.contact.shop ? data.contact.shop : '';
+      shopTextEl.textContent = shop;
+      shopBtn.href = shop || '#';
+
+      // UI strings
+      if (data.ui && data.ui.searchPlaceholder) searchInput.placeholder = data.ui.searchPlaceholder;
+      if (data.ui && data.ui.sourceAttribution) sourceAttributionEl.textContent = data.ui.sourceAttribution;
+      if (data.ui && data.ui.agreementNote) agreementNoteEl.textContent = data.ui.agreementNote;
+      if (data.ui && data.ui.copyEmailTooltip) copyBtn.title = data.ui.copyEmailTooltip;
+      if (data.ui && data.ui.openShopTooltip) shopBtn.title = data.ui.openShopTooltip;
+      if (data.ui && data.ui.savePdfTooltip) savePdfBtn.title = data.ui.savePdfTooltip;
 
       // Sections
       accordion.innerHTML = '';
@@ -400,10 +407,17 @@
       .then(json => renderTerms(json))
       .catch(err => {
         // fallback defaults
-        emailText.textContent = 'bulahan.belmar@gmail.com';
-        shopText.textContent = 'https://ko-fi.com/bmbulahan/shop';
+        logoTextEl.textContent = 'LT';
+        panelTitleEl.textContent = 'License Terms';
+        panelSubtitleEl.textContent = 'Clear, modern, and easy to update — edit terms.json to change content.';
+        panelMetaEl.textContent = 'Keep these terms visible to buyers. The email and shop link are selectable and copyable.';
+        panelTipEl.textContent = 'Tip: highlight the email or shop link to copy, or use the copy button for the email.';
+        emailTextEl.textContent = 'bulahan.belmar@gmail.com';
+        shopTextEl.textContent = 'https://ko-fi.com/bmbulahan/shop';
         shopBtn.href = 'https://ko-fi.com/bmbulahan/shop';
         lastUpdatedEl.textContent = formatWithWeekday(new Date());
+        agreementNoteEl.textContent = 'By using items from this shop you agree to these terms.';
+        sourceAttributionEl.textContent = 'Source: terms.json';
         accordion.innerHTML = '';
         accordion.appendChild(el('div', {}, 'Could not load terms.json. Edit terms.json in the same folder and reload.'));
         console.error(err);
@@ -411,18 +425,16 @@
 
     // Copy email to clipboard
     copyBtn.addEventListener('click', async () => {
-      const text = emailText.textContent || '';
+      const text = emailTextEl.textContent || '';
       try {
         await navigator.clipboard.writeText(text);
-        // visual feedback: temporarily change button icon
         copyBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
         setTimeout(() => {
           copyBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 9H20V20H9V9Z" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 15H4C3.44772 15 3 14.5523 3 14V4C3 3.44772 3.44772 3 4 3H14C14.5523 3 15 3.44772 15 4V5" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
         }, 1100);
       } catch (e) {
-        // fallback: select text for manual copy
         const range = document.createRange();
-        range.selectNodeContents(emailText);
+        range.selectNodeContents(emailTextEl);
         const sel = window.getSelection();
         sel.removeAllRanges();
         sel.addRange(range);
