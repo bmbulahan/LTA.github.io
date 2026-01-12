@@ -61,7 +61,7 @@
 
     .email-row{display:flex;gap:10px;align-items:center;margin-top:16px}
     .email-button{
-      display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);color:var(--text);font-weight:600;font-size:0.95rem;user-select:text;cursor:text; /* cursor text to indicate non-clickable body */
+      display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);color:var(--text);font-weight:600;font-size:0.95rem;user-select:text;cursor:text;
     }
     .email-icon{width:18px;height:18px;opacity:0.95;display:inline-block}
     .copy-btn{
@@ -69,6 +69,21 @@
     }
     .copy-btn:active{transform:translateY(1px)}
     .small-note{font-size:0.85rem;color:var(--muted);margin-top:10px}
+
+    /* Shop row */
+    .shop-row{display:flex;gap:10px;align-items:center;margin-top:12px}
+    .shop-link{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);color:var(--text);font-weight:600;font-size:0.92rem;user-select:text;cursor:text;
+      max-width:100%;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+    .shop-btn{
+      display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:linear-gradient(180deg,var(--accent-2),var(--accent));color:#04263b;font-weight:700;border:none;cursor:pointer;box-shadow:0 8px 20px rgba(6,30,50,0.35);
+      text-decoration:none;
+    }
+    .shop-btn:active{transform:translateY(1px)}
 
     /* Main card */
     .card{
@@ -96,12 +111,12 @@
     .section[aria-expanded="true"]{box-shadow:0 18px 40px rgba(2,6,23,0.6);transform:none}
     .section-header{
       display:flex;align-items:flex-start;justify-content:space-between;padding:14px 16px;gap:12px;
-      cursor:default; /* not clickable */
+      cursor:default;
     }
     .section-title{display:flex;flex-direction:column}
     .section-title strong{font-size:0.98rem}
     .section-title span{font-size:0.86rem;color:var(--muted)}
-    .chev{display:none} /* hide chevron since sections are not collapsible */
+    .chev{display:none}
 
     /* bodies always visible */
     .section-body{
@@ -126,13 +141,14 @@
       .card{padding:12mm;background:#fff;color:#000;border:none;box-shadow:none}
       .section{page-break-inside:avoid}
       .section-body{max-height:none;overflow:visible;padding-top:12px}
-      .controls, .copy-btn, .email-row .copy-btn, .chev{display:none}
+      .controls, .copy-btn, .shop-btn{display:none}
     }
 
     @media (max-width:920px){
       .container{grid-template-columns:1fr; padding:18px}
       .panel{order:2}
       .card{order:1}
+      .shop-link{white-space:normal}
     }
   </style>
 </head>
@@ -148,7 +164,7 @@
       </div>
 
       <div class="meta">
-        Keep these terms visible to buyers. The email is selectable and copyable.
+        Keep these terms visible to buyers. The email and shop link are selectable and copyable.
       </div>
 
       <div class="email-row" style="margin-top:14px">
@@ -169,7 +185,22 @@
         </button>
       </div>
 
-      <div class="small-note">Tip: highlight the email to copy, or use the copy button.</div>
+      <!-- Shop link row: selectable text + button that opens shop in new tab -->
+      <div class="shop-row" aria-label="Shop link">
+        <div id="shopText" class="shop-link" title="Shop URL (select or copy)">
+          https://ko-fi.com/bmbulahan/shop
+        </div>
+
+        <a id="shopBtn" class="shop-btn" href="https://ko-fi.com/bmbulahan/shop" target="_blank" rel="noopener noreferrer" title="Open shop in new tab">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M14 3h7v7" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 14L21 3" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 21H3V3" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="small-note">Tip: highlight the email or shop link to copy, or use the copy button for the email.</div>
     </aside>
 
     <main class="card" role="main" aria-labelledby="main-title">
@@ -195,7 +226,7 @@
           <div class="pill" id="sourceAttribution">Source: terms.json</div>
         </div>
 
-        <!-- Save PDF control only (print button removed) -->
+        <!-- Save PDF control only -->
         <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
           <button id="savePdfBtn" class="copy-btn" title="Save as PDF" style="background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#04263b;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -220,6 +251,8 @@
     const lastUpdatedEl = document.getElementById('lastUpdated');
     const searchInput = document.getElementById('searchInput');
     const savePdfBtn = document.getElementById('savePdfBtn');
+    const shopText = document.getElementById('shopText');
+    const shopBtn = document.getElementById('shopBtn');
 
     function el(tag, props = {}, ...children){
       const node = document.createElement(tag);
@@ -274,6 +307,11 @@
         emailText.textContent = 'contact';
       }
 
+      // If terms.json contains a shop link, use it; otherwise fallback to the provided URL
+      const shopFromJson = data.contact && data.contact.shop ? data.contact.shop : 'https://ko-fi.com/bmbulahan/shop';
+      shopText.textContent = shopFromJson;
+      shopBtn.href = shopFromJson;
+
       accordion.innerHTML = '';
       if (Array.isArray(data.sections)){
         data.sections.forEach((s, i) => {
@@ -294,6 +332,9 @@
       .catch(err => {
         accordion.innerHTML = '';
         accordion.appendChild(el('div', {}, 'Could not load terms.json. If you opened the file directly, run a local server or embed the JSON into the page.'));
+        // still set default shop link even if JSON failed
+        shopText.textContent = 'https://ko-fi.com/bmbulahan/shop';
+        shopBtn.href = 'https://ko-fi.com/bmbulahan/shop';
         console.error(err);
       });
 
@@ -346,7 +387,7 @@
 
       const clone = card.cloneNode(true);
       // Remove interactive controls from clone
-      clone.querySelectorAll('.controls, .copy-btn, .email-row .copy-btn').forEach(n => n && n.remove());
+      clone.querySelectorAll('.controls, .copy-btn').forEach(n => n && n.remove());
       clone.querySelectorAll('.section-body').forEach(b => { b.style.maxHeight = 'none'; b.style.overflow = 'visible'; });
 
       const wrapper = document.createElement('div');
@@ -361,6 +402,13 @@
         console.error('PDF generation failed', err);
         window.print();
       }
+    });
+
+    // Make shop button open in new tab (redundant because anchor has target, but ensures behavior)
+    shopBtn.addEventListener('click', (e) => {
+      // anchor already handles opening in new tab; no extra JS needed
+      // keep this handler to ensure consistent behavior if JS is used
+      // nothing to do here
     });
   </script>
 </body>
