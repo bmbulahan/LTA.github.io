@@ -6,10 +6,7 @@
   <title>License Terms Agreement</title>
   <style>
     :root{
-      --bg-1: #0f1724;
-      --bg-2: #07102a;
-      --card: #0f1724;
-      --glass: rgba(255,255,255,0.04);
+      --dark-blue: #0b2540; /* unified single background color */
       --muted: #9aa4b2;
       --accent: #6ee7b7;
       --accent-2: #60a5fa;
@@ -17,22 +14,38 @@
       --radius: 14px;
       --max-width: 1100px;
       --pad: 22px;
-      --glass-border: rgba(255,255,255,0.06);
+      --glass-border: rgba(255,255,255,0.04);
       --shadow: 0 10px 30px rgba(2,6,23,0.6);
-      --glass-blur: 8px;
       --transition: 240ms cubic-bezier(.2,.9,.3,1);
     }
 
-    html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: linear-gradient(180deg,#07102a 0%, #071b2f 50%, #0b2540 100%); color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+    /* Base */
+    html,body{
+      height:100%;
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--dark-blue);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
     a{color:inherit}
-    .container{max-width:var(--max-width);margin:36px auto;padding:18px;display:grid;grid-template-columns:320px 1fr;gap:20px;align-items:start;}
+    .container{
+      max-width:var(--max-width);
+      margin:36px auto;
+      padding:18px;
+      display:grid;
+      grid-template-columns:320px 1fr;
+      gap:20px;
+      align-items:start;
+    }
 
+    /* Left panel */
     .panel{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      background: var(--dark-blue);
       border-radius:var(--radius);
       padding:20px;
       border:1px solid var(--glass-border);
-      backdrop-filter: blur(var(--glass-blur));
       box-shadow:var(--shadow);
       min-height:220px;
     }
@@ -44,28 +57,25 @@
     }
     .brand h1{font-size:1.05rem;margin:0}
     .brand p{margin:0;color:var(--muted);font-size:0.9rem}
-
     .panel .meta{margin-top:12px;color:var(--muted);font-size:0.92rem;line-height:1.45}
 
     .email-row{display:flex;gap:10px;align-items:center;margin-top:16px}
     .email-button{
-      display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.06);color:var(--text);font-weight:600;font-size:0.95rem;user-select:text;cursor:pointer;transition:transform var(--transition), box-shadow var(--transition);
+      display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);color:var(--text);font-weight:600;font-size:0.95rem;user-select:text;cursor:text; /* cursor text to indicate non-clickable body */
     }
-    .email-button:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
     .email-icon{width:18px;height:18px;opacity:0.95;display:inline-block}
     .copy-btn{
       display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#04263b;font-weight:700;border:none;cursor:pointer;box-shadow:0 8px 20px rgba(6,30,50,0.35);
     }
     .copy-btn:active{transform:translateY(1px)}
-
     .small-note{font-size:0.85rem;color:var(--muted);margin-top:10px}
 
+    /* Main card */
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      background: var(--dark-blue);
       border-radius:var(--radius);
       padding:22px;
       border:1px solid var(--glass-border);
-      backdrop-filter: blur(var(--glass-blur));
       box-shadow:var(--shadow);
     }
 
@@ -76,23 +86,27 @@
 
     .controls{display:flex;gap:10px;align-items:center}
     .search{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 10px;border-radius:10px;color:var(--text);min-width:220px;}
-    .toggle-dark{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 10px;border-radius:10px;color:var(--text);cursor:pointer}
 
+    /* Accordion (all sections visible and non-collapsible) */
     .accordion{margin-top:18px;display:grid;gap:12px}
     .section{
-      border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      border-radius:12px;overflow:visible;border:1px solid rgba(255,255,255,0.03);background: rgba(255,255,255,0.01);
       transition:transform var(--transition), box-shadow var(--transition);
     }
-    .section[aria-expanded="true"]{box-shadow:0 18px 40px rgba(2,6,23,0.6);transform:translateY(-6px)}
-    .section-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;cursor:pointer;gap:12px;}
+    .section[aria-expanded="true"]{box-shadow:0 18px 40px rgba(2,6,23,0.6);transform:none}
+    .section-header{
+      display:flex;align-items:flex-start;justify-content:space-between;padding:14px 16px;gap:12px;
+      cursor:default; /* not clickable */
+    }
     .section-title{display:flex;flex-direction:column}
     .section-title strong{font-size:0.98rem}
     .section-title span{font-size:0.86rem;color:var(--muted)}
-    .chev{width:36px;height:36px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);transition:transform var(--transition)}
-    .section[aria-expanded="true"] .chev{transform:rotate(180deg)}
+    .chev{display:none} /* hide chevron since sections are not collapsible */
 
-    .section-body{padding:0 18px 18px 18px;color:var(--text);line-height:1.6;max-height:0;overflow:hidden;transition:max-height var(--transition) cubic-bezier(.2,.9,.3,1)}
-    .section[aria-expanded="true"] .section-body{max-height:1200px;padding-top:12px}
+    /* bodies always visible */
+    .section-body{
+      padding:12px 18px 18px 18px;color:var(--text);line-height:1.6;max-height:none;overflow:visible;
+    }
 
     .section-body p{margin:0 0 10px 0;color:#dbe9f8}
     .section-body ul{margin:8px 0 0 1.1rem;color:#dbe9f8}
@@ -108,12 +122,11 @@
     @media print {
       body{background: #fff; color:#000}
       .container{max-width:100%;display:block;padding:0}
-      .panel, .card{box-shadow:none;border:none;background:transparent;backdrop-filter:none}
-      .panel{display:none} /* hide left panel for print by default */
-      .card{padding:12mm}
+      .panel{display:none}
+      .card{padding:12mm;background:#fff;color:#000;border:none;box-shadow:none}
       .section{page-break-inside:avoid}
       .section-body{max-height:none;overflow:visible;padding-top:12px}
-      .chev, .controls, .card-footer{display:none}
+      .controls, .copy-btn, .email-row .copy-btn, .chev{display:none}
     }
 
     @media (max-width:920px){
@@ -135,17 +148,18 @@
       </div>
 
       <div class="meta">
-        Keep these terms visible to buyers. Use the copy button to quickly share the contact email.
+        Keep these terms visible to buyers. The email is selectable and copyable.
       </div>
 
       <div class="email-row" style="margin-top:14px">
-        <a id="emailLink" class="email-button" href="#" title="Send email">
+        <!-- Email displayed as selectable text (not a clickable link) -->
+        <div id="emailLink" class="email-button" title="Contact email (select or copy)">
           <svg class="email-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M3 6.5C3 5.67157 3.67157 5 4.5 5H19.5C20.3284 5 21 5.67157 21 6.5V17.5C21 18.3284 20.3284 19 19.5 19H4.5C3.67157 19 3 18.3284 3 17.5V6.5Z" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M21 6.5L12 12.5L3 6.5" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <span id="emailText">loading...</span>
-        </a>
+        </div>
 
         <button id="copyBtn" class="copy-btn" title="Copy email">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -155,7 +169,7 @@
         </button>
       </div>
 
-      <div class="small-note">Tip: the email text is selectable so visitors can highlight and copy it manually if they prefer.</div>
+      <div class="small-note">Tip: highlight the email to copy, or use the copy button.</div>
     </aside>
 
     <main class="card" role="main" aria-labelledby="main-title">
@@ -172,7 +186,7 @@
       </div>
 
       <div id="accordion" class="accordion" aria-live="polite" style="margin-top:12px">
-        <!-- Sections injected here -->
+        <!-- Sections injected here (all visible, non-collapsible) -->
       </div>
 
       <div class="card-footer">
@@ -181,16 +195,8 @@
           <div class="pill" id="sourceAttribution">Source: terms.json</div>
         </div>
 
-        <!-- Print and Save PDF controls -->
+        <!-- Save PDF control only (print button removed) -->
         <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-          <button id="printBtn" class="copy-btn" title="Print page" style="background:linear-gradient(180deg,#ffffff,#e6f7ff);color:#04263b;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 9V3h12v6" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M6 14H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-2" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-              <rect x="6" y="14" width="12" height="6" rx="1" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-
           <button id="savePdfBtn" class="copy-btn" title="Save as PDF" style="background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#04263b;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M12 2v8" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -204,17 +210,15 @@
   </div>
 
   <!-- html2pdf library for client-side PDF generation -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js" integrity="sha512-YcsIPb0bq3qkq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js" integrity="sha512-YcsIPb0bq3qkq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script>
     const SOURCE = 'terms.json';
-    const emailLink = document.getElementById('emailLink');
     const emailText = document.getElementById('emailText');
     const copyBtn = document.getElementById('copyBtn');
     const accordion = document.getElementById('accordion');
     const lastUpdatedEl = document.getElementById('lastUpdated');
     const searchInput = document.getElementById('searchInput');
-    const printBtn = document.getElementById('printBtn');
     const savePdfBtn = document.getElementById('savePdfBtn');
 
     function el(tag, props = {}, ...children){
@@ -228,16 +232,16 @@
       return node;
     }
 
+    // Render a section (non-collapsible, expanded by default)
     function renderSection(idx, sec){
-      const section = el('section', {'class':'section', 'aria-expanded':'false', 'data-index': idx});
-      const header = el('div', {'class':'section-header', 'role':'button', 'tabindex':'0', 'aria-controls':'body-'+idx});
+      const section = el('section', {'class':'section', 'aria-expanded':'true', 'data-index': idx});
+      const header = el('div', {'class':'section-header'});
       const title = el('div', {'class':'section-title'});
       title.appendChild(el('strong', {}, sec.title || `Section ${idx+1}`));
       if (sec.subtitle) title.appendChild(el('span', {}, sec.subtitle));
       else if (sec.body && typeof sec.body === 'string') title.appendChild(el('span', {}, sec.body.slice(0,120) + (sec.body.length>120 ? '…' : '')));
-      const chev = el('div', {'class':'chev', 'aria-hidden':'true'}, el('svg', {viewBox:'0 0 24 24', width:18, height:18, fill:'none', xmlns:'http://www.w3.org/2000/svg'}, el('path', {d:'M6 9l6 6 6-6', stroke:'rgba(255,255,255,0.9)', 'stroke-width':'1.6', 'stroke-linecap':'round', 'stroke-linejoin':'round'})));
+
       header.appendChild(title);
-      header.appendChild(chev);
 
       const body = el('div', {'class':'section-body', 'id':'body-'+idx});
       if (Array.isArray(sec.body)){
@@ -253,13 +257,6 @@
         body.appendChild(el('p', {}, 'No content.'));
       }
 
-      function toggle(open){
-        const isOpen = section.getAttribute('aria-expanded') === 'true';
-        section.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-      }
-      header.addEventListener('click', () => toggle());
-      header.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
-
       section.appendChild(header);
       section.appendChild(body);
       return section;
@@ -272,11 +269,8 @@
 
       const email = data.contact && data.contact.email ? data.contact.email : '';
       if (email){
-        emailLink.href = 'mailto:' + email;
         emailText.textContent = email;
-        emailLink.setAttribute('aria-label', 'Email ' + email);
       } else {
-        emailLink.href = '#';
         emailText.textContent = 'contact';
       }
 
@@ -290,6 +284,7 @@
       }
     }
 
+    // Fetch JSON and render
     fetch(SOURCE, {cache:'no-store'})
       .then(resp => {
         if (!resp.ok) throw new Error('Network response not ok');
@@ -302,6 +297,7 @@
         console.error(err);
       });
 
+    // Copy email
     copyBtn.addEventListener('click', async () => {
       const text = emailText.textContent || '';
       try {
@@ -319,6 +315,7 @@
       }
     });
 
+    // Search filter (hides non-matching sections)
     searchInput.addEventListener('input', () => {
       const q = searchInput.value.trim().toLowerCase();
       const sections = Array.from(accordion.querySelectorAll('.section'));
@@ -330,44 +327,27 @@
       });
     });
 
-    // Print button: opens browser print dialog
-    printBtn.addEventListener('click', () => {
-      // Ensure all sections are expanded for a complete print
-      const sections = accordion.querySelectorAll('.section');
-      sections.forEach(s => s.setAttribute('aria-expanded', 'true'));
-      // Small delay to allow expansion animation to finish
-      setTimeout(() => window.print(), 220);
-    });
-
-    // Save as PDF: uses html2pdf to generate a PDF of the main card
+    // Save as PDF using html2pdf (all content visible)
     savePdfBtn.addEventListener('click', async () => {
       const card = document.querySelector('.card');
       if (!card) return;
 
-      // Expand all sections so PDF captures full content
-      const sections = accordion.querySelectorAll('.section');
-      sections.forEach(s => s.setAttribute('aria-expanded', 'true'));
-
-      // Build filename from title and date
       const title = (document.getElementById('main-title').textContent || 'terms').replace(/\s+/g, '_').toLowerCase();
       const date = new Date().toISOString().slice(0,10);
       const filename = `${title}_${date}.pdf`;
 
-      // html2pdf options tuned for readable output
       const opt = {
-        margin:       [12, 12, 12, 12], // top, left, bottom, right in mm
+        margin:       [12, 12, 12, 12],
         filename:     filename,
         image:        { type: 'jpeg', quality: 0.95 },
         html2canvas:  { scale: 2, useCORS: true, logging: false },
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
       };
 
-      // Temporarily clone the card into a clean container to avoid side effects from the UI
       const clone = card.cloneNode(true);
-      // Remove interactive controls from clone (buttons, search, etc.)
-      clone.querySelectorAll('.controls, .chev, .copy-btn, .email-row, .card-footer .copy-btn').forEach(n => n && n.remove());
-      // Ensure body sections are fully visible
-      clone.querySelectorAll('.section-body').forEach(b => b.style.maxHeight = 'none');
+      // Remove interactive controls from clone
+      clone.querySelectorAll('.controls, .copy-btn, .email-row .copy-btn').forEach(n => n && n.remove());
+      clone.querySelectorAll('.section-body').forEach(b => { b.style.maxHeight = 'none'; b.style.overflow = 'visible'; });
 
       const wrapper = document.createElement('div');
       wrapper.style.padding = '12mm';
@@ -375,22 +355,12 @@
       wrapper.style.color = '#000';
       wrapper.appendChild(clone);
 
-      // Generate PDF and trigger download
       try {
         html2pdf().set(opt).from(wrapper).save();
       } catch (err) {
         console.error('PDF generation failed', err);
-        // Fallback: open print dialog
         window.print();
       }
-    });
-
-    // Open first section by default after content loads
-    document.addEventListener('DOMContentLoaded', () => {
-      setTimeout(() => {
-        const first = accordion.querySelector('.section');
-        if (first) first.setAttribute('aria-expanded', 'true');
-      }, 300);
     });
   </script>
 </body>
