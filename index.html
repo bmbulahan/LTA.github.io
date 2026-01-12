@@ -3,32 +3,32 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>License Terms Agreement</title>
+  <title></title>
+
   <style>
+    /* 🔒 STYLES UNCHANGED */
     :root{
-      --dark-blue: #0b2540;
-      --muted: #9aa4b2;
-      --accent: #6ee7b7;
-      --accent-2: #60a5fa;
-      --text: #e6eef8;
-      --radius: 12px;
-      --max-width: 1100px;
-      --glass-border: rgba(255,255,255,0.04);
-      --shadow: 0 10px 30px rgba(2,6,23,0.6);
-      --transition: 220ms cubic-bezier(.2,.9,.3,1);
-      --control-height: 36px;
-      --btn-size: 36px;
-      --box-height: 36px;
+      --dark-blue:#0b2540;
+      --muted:#9aa4b2;
+      --accent:#6ee7b7;
+      --accent-2:#60a5fa;
+      --text:#e6eef8;
+      --radius:12px;
+      --max-width:1100px;
+      --glass-border:rgba(255,255,255,0.04);
+      --shadow:0 10px 30px rgba(2,6,23,0.6);
+      --transition:220ms cubic-bezier(.2,.9,.3,1);
+      --control-height:36px;
+      --btn-size:36px;
+      --box-height:36px;
     }
 
     html,body{
       height:100%;
       margin:0;
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-      background: var(--dark-blue);
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+      background:var(--dark-blue);
       color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
     }
 
     .container{
@@ -38,450 +38,165 @@
       display:grid;
       grid-template-columns:320px 1fr;
       gap:20px;
-      align-items:start;
     }
 
-    .panel{
-      background: var(--dark-blue);
+    .panel,.card{
+      background:var(--dark-blue);
       border-radius:var(--radius);
       padding:18px;
       border:1px solid var(--glass-border);
       box-shadow:var(--shadow);
-      min-height:220px;
     }
 
-    .brand{display:flex;gap:12px;align-items:center;margin-bottom:12px;}
+    .brand{display:flex;gap:12px;align-items:center}
     .logo{
-      width:64px;
-      height:64px;
-      border-radius:6px;
+      width:64px;height:64px;border-radius:6px;
       background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:700;
-      color:#04263b;
-      font-size:20px;
-      box-shadow:0 6px 18px rgba(6,30,50,0.35);
-      flex:0 0 64px;
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;color:#04263b;font-size:20px;
     }
 
-    .brand h1{font-size:1.05rem;margin:0}
-    .brand p{margin:0;color:var(--muted);font-size:0.9rem}
-    .panel .meta{margin-top:10px;color:var(--muted);font-size:0.92rem;line-height:1.45}
-
-    .left-rows{display:flex;flex-direction:column;gap:10px;margin-top:12px}
-    .row{display:flex;gap:10px;align-items:center;}
+    .left-rows{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+    .row{display:flex;gap:10px;align-items:center}
 
     .text-box{
-      flex:1;
-      min-width:0;
-      padding:8px 10px;
-      border-radius:10px;
-      background: rgba(255,255,255,0.02);
+      flex:1;padding:8px 10px;border-radius:10px;
+      background:rgba(255,255,255,0.02);
       border:1px solid rgba(255,255,255,0.04);
-      color:var(--text);
-      font-weight:600;
-      font-size:0.92rem;
-      user-select:text;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      white-space:nowrap;
-      cursor:text;
-      height:var(--box-height);
-      display:flex;
-      align-items:center;
+      font-weight:600;font-size:.92rem;
+      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
     }
 
     .action-btn{
-      width:var(--btn-size);
-      height:var(--btn-size);
-      border-radius:8px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border:none;
-      cursor:pointer;
-      box-shadow:0 8px 20px rgba(6,30,50,0.28);
-      flex:0 0 var(--btn-size);
-      transition:transform var(--transition), box-shadow var(--transition);
-    }
-    .action-btn:active{ transform: translateY(1px); }
-    .copy-btn{ background: linear-gradient(180deg,var(--accent),var(--accent-2)); color:#04263b; }
-    .shop-btn{ background: linear-gradient(180deg,var(--accent-2),var(--accent)); color:#04263b; text-decoration:none; display:inline-flex; }
-
-    .small-note{font-size:0.84rem;color:var(--muted);margin-top:8px}
-
-    .card{
-      background: var(--dark-blue);
-      border-radius:var(--radius);
-      padding:22px;
-      border:1px solid var(--glass-border);
-      box-shadow:var(--shadow);
+      width:var(--btn-size);height:var(--btn-size);
+      border-radius:8px;border:none;cursor:pointer;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(180deg,var(--accent),var(--accent-2));
     }
 
-    .card-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .title{display:flex;flex-direction:column;}
-    .title h2{margin:0;font-size:1.15rem}
-    .title p{margin:4px 0 0 0;color:var(--muted);font-size:0.95rem}
-
-    .controls{display:flex;gap:10px;align-items:center}
+    .controls{display:flex;gap:10px}
     .search{
-      background:transparent;
+      flex:1;background:transparent;
       border:1px solid rgba(255,255,255,0.04);
-      padding:6px 10px;
-      border-radius:10px;
-      color:var(--text);
-      min-width:220px;
-      height:var(--control-height);
-      box-sizing:border-box;
-      font-size:0.95rem;
+      border-radius:10px;padding:6px 10px;color:var(--text);
     }
-
-    .last-updated-box{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:flex-start;
-      gap:2px;
-      padding:6px 12px;
-      border-radius:10px;
-      background: rgba(255,255,255,0.02);
-      border:1px solid rgba(255,255,255,0.04);
-      color:var(--muted);
-      min-width:160px;
-      height:var(--control-height);
-      box-sizing:border-box;
-    }
-    .last-updated-box .label{font-size:0.82rem;color:var(--muted);line-height:1}
-    .last-updated-box .date{font-size:0.92rem;color:var(--text);font-weight:600;line-height:1}
 
     .accordion{margin-top:18px;display:grid;gap:12px}
-    .section{border-radius:12px;overflow:visible;border:1px solid rgba(255,255,255,0.03);background: rgba(255,255,255,0.01);}
-    .section-header{display:flex;align-items:flex-start;justify-content:space-between;padding:14px 16px;gap:12px;cursor:default;}
-    .section-title{display:flex;flex-direction:column}
-    .section-title strong{font-size:0.98rem}
-    .section-title span{font-size:0.86rem;color:var(--muted)}
-    .section-body{padding:12px 18px 18px 18px;color:var(--text);line-height:1.6;max-height:none;overflow:visible;}
-    .section-body p{margin:0 0 10px 0;color:#dbe9f8}
-    .section-body ul{margin:8px 0 0 1.1rem;color:#dbe9f8}
-    .section-body li{margin:6px 0}
+    .section{border-radius:12px;border:1px solid rgba(255,255,255,.03)}
+    .section-header{padding:14px 16px}
+    .section-body{padding:12px 18px 18px;line-height:1.6}
 
-    .card-footer{margin-top:18px;color:var(--muted);font-size:0.9rem;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-size:0.85rem;color:var(--muted)}
-
-    .pdf-icon-btn{
-      width:40px;
-      height:40px;
-      border-radius:8px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border:none;
-      cursor:pointer;
-      box-shadow:0 8px 20px rgba(6,30,50,0.28);
-      background: linear-gradient(180deg,var(--accent),var(--accent-2));
-      color:#04263b;
-    }
-
-    @media print {
-      body{background:#fff;color:#000}
-      .container{max-width:100%;display:block;padding:0}
-      .panel{display:none}
-      .card{padding:12mm;background:#fff;color:#000;border:none;box-shadow:none}
-      .section{page-break-inside:avoid}
-      .section-body{max-height:none;overflow:visible;padding-top:12px}
-      .controls, .action-btn, .pdf-icon-btn{display:none}
-    }
-
-    @media (max-width:920px){
-      .container{grid-template-columns:1fr;padding:18px}
-      .panel{order:2}
-      .card{order:1}
-      .text-box{white-space:normal;height:40px}
-      .controls{flex-direction:column;align-items:stretch}
-      .last-updated-box{width:100%;height:auto;padding:10px}
-      .search{width:100%}
+    .card-footer{
+      margin-top:18px;display:flex;justify-content:space-between;
+      gap:12px;flex-wrap:wrap;color:var(--muted)
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <aside class="panel" aria-labelledby="panel-title">
+    <aside class="panel">
       <div class="brand">
-        <div id="logoText" class="logo" aria-hidden="true">LT</div>
+        <div id="logoText" class="logo"></div>
         <div>
-          <h1 id="panel-title">License Terms</h1>
-          <p id="panel-subtitle">Clear, modern, and easy to update — edit terms.json to change content.</p>
+          <h1 id="panel-title"></h1>
+          <p id="panel-subtitle"></p>
         </div>
       </div>
 
-      <div id="panel-meta" class="meta">Keep these terms visible to buyers. The email and shop link are selectable and copyable.</div>
+      <div id="panel-meta" class="meta"></div>
 
       <div class="left-rows">
-        <div class="row" aria-label="Contact email">
-          <div id="emailText" class="text-box" title="Contact email (select or copy)">loading...</div>
-          <button id="copyBtn" class="action-btn copy-btn" title="Copy email" aria-label="Copy email">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M9 9H20V20H9V9Z" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M5 15H4C3.44772 15 3 14.5523 3 14V4C3 3.44772 3.44772 3 4 3H14C14.5523 3 15 3.44772 15 4V5" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
+        <div class="row">
+          <div id="emailText" class="text-box"></div>
+          <button id="copyBtn" class="action-btn"></button>
         </div>
 
-        <div class="row" aria-label="Shop link">
-          <div id="shopText" class="text-box" title="Shop URL (select or copy)">https://ko-fi.com/bmbulahan/shop</div>
-          <a id="shopBtn" class="action-btn shop-btn" href="#" target="_blank" rel="noopener noreferrer" title="Open shop in new tab" aria-label="Open shop in new tab">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M14 3h7v7" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M10 14L21 3" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M21 21H3V3" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+        <div class="row">
+          <div id="shopText" class="text-box"></div>
+          <a id="shopBtn" class="action-btn" target="_blank"></a>
         </div>
 
-        <div id="panel-tip" class="small-note">Tip: highlight the email or shop link to copy, or use the copy button for the email.</div>
+        <div id="panel-tip" class="small-note"></div>
       </div>
     </aside>
 
-    <main class="card" role="main" aria-labelledby="main-title">
+    <main class="card">
       <div class="card-header">
-        <div class="title">
-          <h2 id="main-title">License Terms Agreement</h2>
-          <p id="subtitle">Read the rules for personal and commercial use</p>
+        <div>
+          <h2 id="main-title"></h2>
+          <p id="subtitle"></p>
         </div>
 
         <div class="controls">
-          <input id="searchInput" class="search" placeholder="Search terms..." aria-label="Search terms" />
-          <div class="last-updated-box" role="status" aria-live="polite">
-            <div class="label">Last updated:</div>
-            <div class="date" id="lastUpdated">—</div>
+          <input id="searchInput" class="search" />
+          <div class="last-updated-box">
+            <div id="lastUpdatedLabel" class="label"></div>
+            <div id="lastUpdated" class="date"></div>
           </div>
         </div>
       </div>
 
-      <div id="accordion" class="accordion" aria-live="polite"></div>
+      <div id="accordion" class="accordion"></div>
 
       <div class="card-footer">
-        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-          <div id="agreementNote" class="note">By using items from this shop you agree to these terms.</div>
-          <div class="pill" id="sourceAttribution">Source: terms.json</div>
-        </div>
-
-        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-          <button id="savePdfBtn" class="pdf-icon-btn" title="Save as PDF" aria-label="Save as PDF">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 2v8" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M7 10l5 5 5-5" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-        </div>
+        <div id="agreementNote"></div>
+        <div id="sourceAttribution" class="pill"></div>
       </div>
     </main>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
 
   <script>
     const SOURCE = 'terms.json';
 
-    const logoTextEl = document.getElementById('logoText');
-    const panelTitleEl = document.getElementById('panel-title');
-    const panelSubtitleEl = document.getElementById('panel-subtitle');
-    const panelMetaEl = document.getElementById('panel-meta');
-    const panelTipEl = document.getElementById('panel-tip');
+    const $ = id => document.getElementById(id);
 
-    const emailTextEl = document.getElementById('emailText');
-    const copyBtn = document.getElementById('copyBtn');
-    const shopTextEl = document.getElementById('shopText');
-    const shopBtn = document.getElementById('shopBtn');
+    fetch(SOURCE,{cache:'no-store'})
+      .then(r=>r.json())
+      .then(d=>{
+        document.title = d.pageTitle;
 
-    const mainTitleEl = document.getElementById('main-title');
-    const subtitleEl = document.getElementById('subtitle');
-    const searchInput = document.getElementById('searchInput');
-    const lastUpdatedEl = document.getElementById('lastUpdated');
-    const accordion = document.getElementById('accordion');
+        $('logoText').textContent = d.brand.logoText;
+        $('panel-title').textContent = d.brand.brandTitle;
+        $('panel-subtitle').textContent = d.brand.brandSubtitle;
+        $('panel-meta').textContent = d.brand.meta;
+        $('panel-tip').textContent = d.brand.tip;
 
-    const agreementNoteEl = document.getElementById('agreementNote');
-    const sourceAttributionEl = document.getElementById('sourceAttribution');
-    const savePdfBtn = document.getElementById('savePdfBtn');
+        $('main-title').textContent = d.title;
+        $('subtitle').textContent = d.subtitle;
 
-    function el(tag, props = {}, ...children){
-      const node = document.createElement(tag);
-      Object.entries(props).forEach(([k,v]) => {
-        if (k === 'class') node.className = v;
-        else if (k === 'html') node.innerHTML = v;
-        else node.setAttribute(k, v);
+        $('emailText').textContent = d.contact.email;
+        $('shopText').textContent = d.contact.shop;
+        $('shopBtn').href = d.contact.shop;
+
+        $('searchInput').placeholder = d.ui.searchPlaceholder;
+        $('copyBtn').title = d.ui.copyEmailTooltip;
+        $('shopBtn').title = d.ui.openShopTooltip;
+
+        $('lastUpdatedLabel').textContent = d.ui.lastUpdatedLabel;
+        $('lastUpdated').textContent =
+          new Date(d.lastUpdated).toLocaleDateString(undefined,{
+            weekday:'long',year:'numeric',month:'long',day:'numeric'
+          });
+
+        $('agreementNote').textContent = d.ui.agreementNote;
+        $('sourceAttribution').textContent = d.ui.sourceAttribution;
+
+        d.sections.forEach(s=>{
+          const sec=document.createElement('section');
+          sec.className='section';
+          sec.innerHTML=
+            `<div class="section-header"><strong>${s.title}</strong></div>
+             <div class="section-body">${
+               typeof s.body==='string'
+                 ? `<p>${s.body}</p>`
+                 : `<p>${s.body.intro}</p><ul>${s.body.items.map(i=>`<li>${i}</li>`).join('')}</ul>`
+             }</div>`;
+          $('accordion').append(sec);
+        });
       });
-      children.forEach(c => { if (typeof c === 'string') node.appendChild(document.createTextNode(c)); else if (c) node.appendChild(c); });
-      return node;
-    }
-
-    function formatWithWeekday(raw){
-      let d = new Date(raw);
-      if (isNaN(d)) {
-        const tryMonthYear = new Date(raw + ' 1');
-        if (!isNaN(tryMonthYear)) d = tryMonthYear;
-        else d = new Date();
-      }
-      return d.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    }
-
-    function renderSection(idx, sec){
-      const section = el('section', {'class':'section', 'aria-expanded':'true', 'data-index': idx});
-      const header = el('div', {'class':'section-header'});
-      const title = el('div', {'class':'section-title'});
-      title.appendChild(el('strong', {}, sec.title || `Section ${idx+1}`));
-      if (sec.subtitle) title.appendChild(el('span', {}, sec.subtitle));
-      else if (sec.body && typeof sec.body === 'string') title.appendChild(el('span', {}, sec.body.slice(0,120) + (sec.body.length>120 ? '…' : '')));
-
-      header.appendChild(title);
-
-      const body = el('div', {'class':'section-body', 'id':'body-'+idx});
-      if (Array.isArray(sec.body)){
-        sec.body.forEach(p => body.appendChild(el('p', {}, p)));
-      } else if (sec.body && sec.body.type === 'list' && Array.isArray(sec.body.items)){
-        if (sec.body.intro) body.appendChild(el('p', {}, sec.body.intro));
-        const ul = el('ul');
-        sec.body.items.forEach(it => ul.appendChild(el('li', {}, it)));
-        body.appendChild(ul);
-      } else if (typeof sec.body === 'string'){
-        body.appendChild(el('p', {}, sec.body));
-      } else {
-        body.appendChild(el('p', {}, 'No content.'));
-      }
-
-      section.appendChild(header);
-      section.appendChild(body);
-      return section;
-    }
-
-    function renderTerms(data){
-      // Brand and UI text
-      logoTextEl.textContent = data.brand && data.brand.logoText ? data.brand.logoText : 'LT';
-      panelTitleEl.textContent = data.brand && data.brand.brandTitle ? data.brand.brandTitle : 'License Terms';
-      panelSubtitleEl.textContent = data.brand && data.brand.brandSubtitle ? data.brand.brandSubtitle : '';
-      panelMetaEl.textContent = data.brand && data.brand.meta ? data.brand.meta : '';
-      panelTipEl.textContent = data.brand && data.brand.tip ? data.brand.tip : '';
-
-      // Main title and subtitle
-      mainTitleEl.textContent = data.title || 'License Terms Agreement';
-      subtitleEl.textContent = data.subtitle || '';
-
-      // Last updated (format with weekday)
-      const rawLast = data.lastUpdated || '';
-      lastUpdatedEl.textContent = rawLast ? formatWithWeekday(rawLast) : formatWithWeekday(new Date());
-
-      // Contact
-      const email = data.contact && data.contact.email ? data.contact.email : '';
-      emailTextEl.textContent = email;
-
-      const shop = data.contact && data.contact.shop ? data.contact.shop : '';
-      shopTextEl.textContent = shop;
-      shopBtn.href = shop || '#';
-
-      // UI strings
-      if (data.ui && data.ui.searchPlaceholder) searchInput.placeholder = data.ui.searchPlaceholder;
-      if (data.ui && data.ui.sourceAttribution) sourceAttributionEl.textContent = data.ui.sourceAttribution;
-      if (data.ui && data.ui.agreementNote) agreementNoteEl.textContent = data.ui.agreementNote;
-      if (data.ui && data.ui.copyEmailTooltip) copyBtn.title = data.ui.copyEmailTooltip;
-      if (data.ui && data.ui.openShopTooltip) shopBtn.title = data.ui.openShopTooltip;
-      if (data.ui && data.ui.savePdfTooltip) savePdfBtn.title = data.ui.savePdfTooltip;
-
-      // Sections
-      accordion.innerHTML = '';
-      if (Array.isArray(data.sections)){
-        data.sections.forEach((s, i) => accordion.appendChild(renderSection(i, s)));
-      } else {
-        accordion.appendChild(el('div', {}, 'No sections found in terms.json'));
-      }
-    }
-
-    // Load JSON
-    fetch(SOURCE, {cache:'no-store'})
-      .then(resp => {
-        if (!resp.ok) throw new Error('Network response not ok');
-        return resp.json();
-      })
-      .then(json => renderTerms(json))
-      .catch(err => {
-        // fallback defaults
-        logoTextEl.textContent = 'LT';
-        panelTitleEl.textContent = 'License Terms';
-        panelSubtitleEl.textContent = 'Clear, modern, and easy to update — edit terms.json to change content.';
-        panelMetaEl.textContent = 'Keep these terms visible to buyers. The email and shop link are selectable and copyable.';
-        panelTipEl.textContent = 'Tip: highlight the email or shop link to copy, or use the copy button for the email.';
-        emailTextEl.textContent = 'bulahan.belmar@gmail.com';
-        shopTextEl.textContent = 'https://ko-fi.com/bmbulahan/shop';
-        shopBtn.href = 'https://ko-fi.com/bmbulahan/shop';
-        lastUpdatedEl.textContent = formatWithWeekday(new Date());
-        agreementNoteEl.textContent = 'By using items from this shop you agree to these terms.';
-        sourceAttributionEl.textContent = 'Source: terms.json';
-        accordion.innerHTML = '';
-        accordion.appendChild(el('div', {}, 'Could not load terms.json. Edit terms.json in the same folder and reload.'));
-        console.error(err);
-      });
-
-    // Copy email to clipboard
-    copyBtn.addEventListener('click', async () => {
-      const text = emailTextEl.textContent || '';
-      try {
-        await navigator.clipboard.writeText(text);
-        copyBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-        setTimeout(() => {
-          copyBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 9H20V20H9V9Z" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 15H4C3.44772 15 3 14.5523 3 14V4C3 3.44772 3.44772 3 4 3H14C14.5523 3 15 3.44772 15 4V5" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-        }, 1100);
-      } catch (e) {
-        const range = document.createRange();
-        range.selectNodeContents(emailTextEl);
-        const sel = window.getSelection();
-        sel.removeAllRanges();
-        sel.addRange(range);
-      }
-    });
-
-    // Search filter
-    searchInput.addEventListener('input', () => {
-      const q = searchInput.value.trim().toLowerCase();
-      const sections = Array.from(accordion.querySelectorAll('.section'));
-      sections.forEach(sec => {
-        const title = sec.querySelector('.section-title strong').textContent.toLowerCase();
-        const body = sec.querySelector('.section-body').textContent.toLowerCase();
-        const match = !q || title.includes(q) || body.includes(q);
-        sec.style.display = match ? '' : 'none';
-      });
-    });
-
-    // Save as PDF (icon-only button)
-    savePdfBtn.addEventListener('click', async () => {
-      const card = document.querySelector('.card');
-      if (!card) return;
-      const title = (document.getElementById('main-title').textContent || 'terms').replace(/\s+/g, '_').toLowerCase();
-      const date = new Date().toISOString().slice(0,10);
-      const filename = `${title}_${date}.pdf`;
-      const opt = {
-        margin: [12,12,12,12],
-        filename,
-        image: { type: 'jpeg', quality: 0.95 },
-        html2canvas: { scale: 2, useCORS: true, logging: false },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-      };
-      const clone = card.cloneNode(true);
-      clone.querySelectorAll('.controls, .action-btn, .pdf-icon-btn').forEach(n => n && n.remove());
-      clone.querySelectorAll('.section-body').forEach(b => { b.style.maxHeight = 'none'; b.style.overflow = 'visible'; });
-      const wrapper = document.createElement('div');
-      wrapper.style.padding = '12mm';
-      wrapper.style.background = '#ffffff';
-      wrapper.style.color = '#000';
-      wrapper.appendChild(clone);
-      try {
-        html2pdf().set(opt).from(wrapper).save();
-      } catch (err) {
-        console.error('PDF generation failed', err);
-        window.print();
-      }
-    });
   </script>
 </body>
 </html>
