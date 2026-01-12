@@ -1,8 +1,25 @@
 {
   "title": "License Terms Agreement",
-  "lastUpdated": "January 2026",
+  "subtitle": "Read the rules for personal and commercial use",
+  "lastUpdated": "2026-01-12",
+  "brand": {
+    "logoText": "LT",
+    "brandTitle": "License Terms",
+    "brandSubtitle": "Clear, modern, and easy to update — edit terms.json to change content.",
+    "meta": "Keep these terms visible to buyers. The email and shop link are selectable and copyable.",
+    "tip": "Tip: highlight the email or shop link to copy, or use the copy button for the email."
+  },
   "contact": {
-    "email": "bulahan.belmar@gmail.com"
+    "email": "bulahan.belmar@gmail.com",
+    "shop": "https://ko-fi.com/bmbulahan/shop"
+  },
+  "ui": {
+    "searchPlaceholder": "Search terms...",
+    "sourceAttribution": "Source: terms.json",
+    "agreementNote": "By using items from this shop you agree to these terms.",
+    "savePdfTooltip": "Save as PDF",
+    "copyEmailTooltip": "Copy email",
+    "openShopTooltip": "Open shop in new tab"
   },
   "sections": [
     {
