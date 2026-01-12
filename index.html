@@ -1,240 +1,397 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>License Terms Agreement</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#07243f;            /* single dark-blue background */
-    --panel:#0b3354;
-    --muted:#9fb6d6;
-    --accent:#6fb8ff;
-    --glass: rgba(255,255,255,0.03);
-    --btn-size:40px;
-    --radius:14px;
-    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", monospace;
-  }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>License Terms Agreement</title>
+  <style>
+    :root{
+      --bg-1: #0f1724;
+      --bg-2: #07102a;
+      --card: #0f1724;
+      --glass: rgba(255,255,255,0.04);
+      --muted: #9aa4b2;
+      --accent: #6ee7b7;
+      --accent-2: #60a5fa;
+      --text: #e6eef8;
+      --radius: 14px;
+      --max-width: 1100px;
+      --pad: 22px;
+      --glass-border: rgba(255,255,255,0.06);
+      --shadow: 0 10px 30px rgba(2,6,23,0.6);
+      --glass-blur: 8px;
+      --transition: 240ms cubic-bezier(.2,.9,.3,1);
+    }
 
-  html,body{height:100%;margin:0;background:var(--bg);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;color:#eaf6ff;-webkit-font-smoothing:antialiased}
-  .container{max-width:980px;margin:48px auto;padding:28px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 12px 40px rgba(2,8,20,0.6);border:1px solid rgba(255,255,255,0.03)}
-  header{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
-  .last-update{font-size:13px;color:var(--muted)}
-  .update-date{font-weight:600;color:#e6f9ff;font-size:14px}
-  .top-row{display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap}
-  .contact{display:flex;align-items:center;gap:10px}
-  .btn-icon{width:var(--btn-size);height:var(--btn-size);display:inline-grid;place-items:center;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);cursor:pointer;transition:transform .12s ease}
-  .btn-icon:hover{transform:translateY(-3px)}
-  .selectable{user-select:text;-webkit-user-select:text;-moz-user-select:text}
-  .email-row,.shop-row{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)}
-  .email-text,.shop-text{font-family:var(--mono);font-size:14px;color:#dff6ff;white-space:nowrap;overflow:auto}
-  .spacer{flex:1}
-  main{margin-top:18px}
-  h1{margin:0;font-size:22px;color:#fff}
-  .subtitle{color:var(--muted);margin-top:6px;font-size:13px}
-  .card{margin-top:18px;padding:20px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.02)}
-  .section-title{font-weight:700;color:#eaf6ff;margin-bottom:10px;font-size:16px}
-  .license-text{color:#dbeeff;line-height:1.6;font-size:15px}
-  .license-text ol{padding-left:18px;margin:8px 0 0 0;color:var(--muted)}
-  .license-text li{margin:12px 0}
-  .controls{display:flex;gap:10px;align-items:center;margin-top:14px}
-  .print-icon{
-    width:40px;height:40px;border-radius:10px;display:inline-grid;place-items:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.03);cursor:pointer;color:var(--accent);
-  }
-  footer{margin-top:18px;color:var(--muted);font-size:13px}
-  @media (max-width:720px){
-    .top-row{flex-direction:column;align-items:flex-start}
-    .spacer{display:none}
-    .email-text,.shop-text{font-size:13px}
-  }
+    html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: linear-gradient(180deg,#07102a 0%, #071b2f 50%, #0b2540 100%); color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+    a{color:inherit}
+    .container{max-width:var(--max-width);margin:36px auto;padding:18px;display:grid;grid-template-columns:320px 1fr;gap:20px;align-items:start;}
 
-  /* Print styles: hide everything except the license card when printing */
-  @media print {
-    body * { visibility: hidden; }
-    #printableCard, #printableCard * { visibility: visible; }
-    #printableCard { position: absolute; left: 0; top: 0; width: 100%; }
-  }
-</style>
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:20px;
+      border:1px solid var(--glass-border);
+      backdrop-filter: blur(var(--glass-blur));
+      box-shadow:var(--shadow);
+      min-height:220px;
+    }
+    .brand{
+      display:flex;gap:12px;align-items:center;margin-bottom:12px;
+    }
+    .logo{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#04263b;font-size:20px;box-shadow:0 6px 18px rgba(6,30,50,0.35);
+    }
+    .brand h1{font-size:1.05rem;margin:0}
+    .brand p{margin:0;color:var(--muted);font-size:0.9rem}
+
+    .panel .meta{margin-top:12px;color:var(--muted);font-size:0.92rem;line-height:1.45}
+
+    .email-row{display:flex;gap:10px;align-items:center;margin-top:16px}
+    .email-button{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.06);color:var(--text);font-weight:600;font-size:0.95rem;user-select:text;cursor:pointer;transition:transform var(--transition), box-shadow var(--transition);
+    }
+    .email-button:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+    .email-icon{width:18px;height:18px;opacity:0.95;display:inline-block}
+    .copy-btn{
+      display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#04263b;font-weight:700;border:none;cursor:pointer;box-shadow:0 8px 20px rgba(6,30,50,0.35);
+    }
+    .copy-btn:active{transform:translateY(1px)}
+
+    .small-note{font-size:0.85rem;color:var(--muted);margin-top:10px}
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:22px;
+      border:1px solid var(--glass-border);
+      backdrop-filter: blur(var(--glass-blur));
+      box-shadow:var(--shadow);
+    }
+
+    .card-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .title{display:flex;flex-direction:column;}
+    .title h2{margin:0;font-size:1.15rem}
+    .title p{margin:4px 0 0 0;color:var(--muted);font-size:0.95rem}
+
+    .controls{display:flex;gap:10px;align-items:center}
+    .search{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 10px;border-radius:10px;color:var(--text);min-width:220px;}
+    .toggle-dark{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 10px;border-radius:10px;color:var(--text);cursor:pointer}
+
+    .accordion{margin-top:18px;display:grid;gap:12px}
+    .section{
+      border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      transition:transform var(--transition), box-shadow var(--transition);
+    }
+    .section[aria-expanded="true"]{box-shadow:0 18px 40px rgba(2,6,23,0.6);transform:translateY(-6px)}
+    .section-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;cursor:pointer;gap:12px;}
+    .section-title{display:flex;flex-direction:column}
+    .section-title strong{font-size:0.98rem}
+    .section-title span{font-size:0.86rem;color:var(--muted)}
+    .chev{width:36px;height:36px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);transition:transform var(--transition)}
+    .section[aria-expanded="true"] .chev{transform:rotate(180deg)}
+
+    .section-body{padding:0 18px 18px 18px;color:var(--text);line-height:1.6;max-height:0;overflow:hidden;transition:max-height var(--transition) cubic-bezier(.2,.9,.3,1)}
+    .section[aria-expanded="true"] .section-body{max-height:1200px;padding-top:12px}
+
+    .section-body p{margin:0 0 10px 0;color:#dbe9f8}
+    .section-body ul{margin:8px 0 0 1.1rem;color:#dbe9f8}
+    .section-body li{margin:6px 0}
+
+    .card-footer{margin-top:18px;color:var(--muted);font-size:0.9rem;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-size:0.85rem;color:var(--muted)}
+    .fade-in{animation:fadeIn .6s ease both}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+    /* Print styles: keep it clean and readable */
+    @media print {
+      body{background: #fff; color:#000}
+      .container{max-width:100%;display:block;padding:0}
+      .panel, .card{box-shadow:none;border:none;background:transparent;backdrop-filter:none}
+      .panel{display:none} /* hide left panel for print by default */
+      .card{padding:12mm}
+      .section{page-break-inside:avoid}
+      .section-body{max-height:none;overflow:visible;padding-top:12px}
+      .chev, .controls, .card-footer{display:none}
+    }
+
+    @media (max-width:920px){
+      .container{grid-template-columns:1fr; padding:18px}
+      .panel{order:2}
+      .card{order:1}
+    }
+  </style>
 </head>
 <body>
-  <div class="container" role="main" aria-live="polite">
-    <header>
-      <div class="last-update">Last update</div>
-      <div class="update-date" id="lastUpdate">--</div>
+  <div class="container fade-in">
+    <aside class="panel" aria-labelledby="panel-title">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">LT</div>
+        <div>
+          <h1 id="panel-title">License Terms</h1>
+          <p>Clear, modern, and easy to update — edit <code>terms.json</code> to change content.</p>
+        </div>
+      </div>
 
-      <div class="top-row">
-        <div class="contact email-row" title="Email (click copy)">
-          <button id="copyEmailBtn" class="btn-icon" aria-label="Copy email">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
-              <path d="M16 21H8a2 2 0 0 1-2-2V7" stroke="#bfe9ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <rect x="9" y="3" width="11" height="14" rx="2" stroke="#bfe9ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <div class="email-text selectable" id="emailText"></div>
+      <div class="meta">
+        Keep these terms visible to buyers. Use the copy button to quickly share the contact email.
+      </div>
+
+      <div class="email-row" style="margin-top:14px">
+        <a id="emailLink" class="email-button" href="#" title="Send email">
+          <svg class="email-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3 6.5C3 5.67157 3.67157 5 4.5 5H19.5C20.3284 5 21 5.67157 21 6.5V17.5C21 18.3284 20.3284 19 19.5 19H4.5C3.67157 19 3 18.3284 3 17.5V6.5Z" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 6.5L12 12.5L3 6.5" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span id="emailText">loading...</span>
+        </a>
+
+        <button id="copyBtn" class="copy-btn" title="Copy email">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M9 9H20V20H9V9Z" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5 15H4C3.44772 15 3 14.5523 3 14V4C3 3.44772 3.44772 3 4 3H14C14.5523 3 15 3.44772 15 4V5" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="small-note">Tip: the email text is selectable so visitors can highlight and copy it manually if they prefer.</div>
+    </aside>
+
+    <main class="card" role="main" aria-labelledby="main-title">
+      <div class="card-header">
+        <div class="title">
+          <h2 id="main-title">License Terms Agreement</h2>
+          <p id="subtitle">Read the rules for personal and commercial use</p>
         </div>
 
-        <div class="spacer" role="presentation"></div>
+        <div class="controls">
+          <input id="searchInput" class="search" placeholder="Search terms..." aria-label="Search terms" />
+          <div class="pill" id="lastUpdated">Last updated: —</div>
+        </div>
+      </div>
 
-        <div class="contact shop-row" title="Shop link">
-          <div class="shop-text selectable" id="shopText"></div>
-          <button id="openShopBtn" class="btn-icon" aria-label="Open shop in new tab">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
-              <path d="M14 3h7v7" stroke="#bfe9ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M10 14L21 3" stroke="#bfe9ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M21 21H3V3" stroke="#bfe9ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <div id="accordion" class="accordion" aria-live="polite" style="margin-top:12px">
+        <!-- Sections injected here -->
+      </div>
+
+      <div class="card-footer">
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <div class="note">By using items from this shop you agree to these terms.</div>
+          <div class="pill" id="sourceAttribution">Source: terms.json</div>
+        </div>
+
+        <!-- Print and Save PDF controls -->
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <button id="printBtn" class="copy-btn" title="Print page" style="background:linear-gradient(180deg,#ffffff,#e6f7ff);color:#04263b;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9V3h12v6" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 14H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-2" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="6" y="14" width="12" height="6" rx="1" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <button id="savePdfBtn" class="copy-btn" title="Save as PDF" style="background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#04263b;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2v8" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 10l5 5 5-5" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
         </div>
       </div>
-    </header>
-
-    <main>
-      <h1 id="pageTitle">License Terms Agreement</h1>
-      <div class="subtitle" id="pageSubtitle">Please read these terms carefully before using any items from the shop.</div>
-
-      <section class="card" id="licenseCard" aria-labelledby="licenseHeading">
-        <div class="section-title" id="licenseHeading"></div>
-        <div class="license-text" id="licenseContent"></div>
-
-        <div class="controls">
-          <!-- Print button: icon only -->
-          <button id="printBtn" class="print-icon" aria-label="Print license">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
-              <path d="M6 9V3h12v6" stroke="#6fb8ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <rect x="3" y="9" width="18" height="8" rx="2" stroke="#6fb8ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M7 18v3h10v-3" stroke="#6fb8ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-        </div>
-      </section>
-
-      <footer>
-        <div id="footerNote"></div>
-      </footer>
     </main>
   </div>
 
-<script>
-(async function(){
-  // Load terms.json
-  let data = null;
-  try {
-    const res = await fetch('terms.json', {cache: "no-store"});
-    if (!res.ok) throw new Error('terms.json not found');
-    data = await res.json();
-  } catch (e) {
-    console.warn('Could not load terms.json:', e);
-    data = {
-      title: "License Terms Agreement",
-      subtitle: "Please read these terms carefully before using any items from the shop.",
-      lastUpdate: "",
-      email: "",
-      shop: "",
-      licenseHtml: "<p>No license content available.</p>",
-      footerNote: ""
-    };
-  }
+  <!-- html2pdf library for client-side PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js" integrity="sha512-YcsIPb0bq3qkq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  // Populate UI
-  document.getElementById('pageTitle').textContent = data.title || '';
-  document.getElementById('pageSubtitle').textContent = data.subtitle || '';
-  document.getElementById('licenseHeading').textContent = data.title || '';
-  document.getElementById('licenseContent').innerHTML = data.licenseHtml || '';
-  document.getElementById('footerNote').textContent = data.footerNote || '';
-  document.getElementById('lastUpdate').textContent = formatDateString(data.lastUpdate || '');
-  document.getElementById('emailText').textContent = data.email || '';
-  document.getElementById('shopText').textContent = data.shop || '';
+  <script>
+    const SOURCE = 'terms.json';
+    const emailLink = document.getElementById('emailLink');
+    const emailText = document.getElementById('emailText');
+    const copyBtn = document.getElementById('copyBtn');
+    const accordion = document.getElementById('accordion');
+    const lastUpdatedEl = document.getElementById('lastUpdated');
+    const searchInput = document.getElementById('searchInput');
+    const printBtn = document.getElementById('printBtn');
+    const savePdfBtn = document.getElementById('savePdfBtn');
 
-  // Copy email
-  const copyBtn = document.getElementById('copyEmailBtn');
-  copyBtn.addEventListener('click', async () => {
-    if (!data.email) return;
-    try {
-      await navigator.clipboard.writeText(data.email);
-      copyBtn.setAttribute('aria-label', 'Email copied');
-      copyBtn.style.transform = 'translateY(-3px) scale(0.98)';
-      setTimeout(()=>copyBtn.style.transform='', 220);
-    } catch {
-      const range = document.createRange();
-      range.selectNodeContents(document.getElementById('emailText'));
-      const sel = window.getSelection();
-      sel.removeAllRanges();
-      sel.addRange(range);
+    function el(tag, props = {}, ...children){
+      const node = document.createElement(tag);
+      Object.entries(props).forEach(([k,v]) => {
+        if (k === 'class') node.className = v;
+        else if (k === 'html') node.innerHTML = v;
+        else node.setAttribute(k, v);
+      });
+      children.forEach(c => { if (typeof c === 'string') node.appendChild(document.createTextNode(c)); else if (c) node.appendChild(c); });
+      return node;
     }
-  });
 
-  // Open shop
-  document.getElementById('openShopBtn').addEventListener('click', () => {
-    if (!data.shop) return;
-    window.open(data.shop, '_blank', 'noopener');
-  });
+    function renderSection(idx, sec){
+      const section = el('section', {'class':'section', 'aria-expanded':'false', 'data-index': idx});
+      const header = el('div', {'class':'section-header', 'role':'button', 'tabindex':'0', 'aria-controls':'body-'+idx});
+      const title = el('div', {'class':'section-title'});
+      title.appendChild(el('strong', {}, sec.title || `Section ${idx+1}`));
+      if (sec.subtitle) title.appendChild(el('span', {}, sec.subtitle));
+      else if (sec.body && typeof sec.body === 'string') title.appendChild(el('span', {}, sec.body.slice(0,120) + (sec.body.length>120 ? '…' : '')));
+      const chev = el('div', {'class':'chev', 'aria-hidden':'true'}, el('svg', {viewBox:'0 0 24 24', width:18, height:18, fill:'none', xmlns:'http://www.w3.org/2000/svg'}, el('path', {d:'M6 9l6 6 6-6', stroke:'rgba(255,255,255,0.9)', 'stroke-width':'1.6', 'stroke-linecap':'round', 'stroke-linejoin':'round'})));
+      header.appendChild(title);
+      header.appendChild(chev);
 
-  // Print: open a new window with only the license card content and trigger print
-  document.getElementById('printBtn').addEventListener('click', () => {
-    const card = document.getElementById('licenseCard');
-    const styles = Array.from(document.querySelectorAll('style, link[rel="stylesheet"]'))
-      .map(node => node.outerHTML).join('\n');
+      const body = el('div', {'class':'section-body', 'id':'body-'+idx});
+      if (Array.isArray(sec.body)){
+        sec.body.forEach(p => body.appendChild(el('p', {}, p)));
+      } else if (sec.body && sec.body.type === 'list' && Array.isArray(sec.body.items)){
+        if (sec.body.intro) body.appendChild(el('p', {}, sec.body.intro));
+        const ul = el('ul');
+        sec.body.items.forEach(it => ul.appendChild(el('li', {}, it)));
+        body.appendChild(ul);
+      } else if (typeof sec.body === 'string'){
+        body.appendChild(el('p', {}, sec.body));
+      } else {
+        body.appendChild(el('p', {}, 'No content.'));
+      }
 
-    // Build printable HTML
-    const printable = `
-      <!doctype html>
-      <html>
-      <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>${escapeHtml(data.title || 'License')}</title>
-        <style>
-          body{margin:20px;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;color:#0b2340;background:#fff}
-          .card{padding:20px;border-radius:8px;border:1px solid #e6eef6;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
-          h1{font-size:18px;margin:0 0 8px 0;color:#07243f}
-          .muted{color:#4b6b86;font-size:13px;margin-bottom:12px}
-          .license-text{color:#07243f;line-height:1.6;font-size:13px}
-          .license-text ol{padding-left:18px}
-        </style>
-      </head>
-      <body>
-        <div class="card" id="printableCard">
-          <h1>${escapeHtml(data.title || '')}</h1>
-          <div class="muted">Last update: ${escapeHtml(formatDateString(data.lastUpdate || ''))}</div>
-          <div class="license-text">${data.licenseHtml || ''}</div>
-          <div style="margin-top:14px;color:#4b6b86;font-size:12px">${escapeHtml(data.footerNote || '')}</div>
-        </div>
-        <script>
-          window.onload = function(){ setTimeout(()=>{ window.print(); window.close(); }, 120); };
-        </script>
-      </body>
-      </html>
-    `;
+      function toggle(open){
+        const isOpen = section.getAttribute('aria-expanded') === 'true';
+        section.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      }
+      header.addEventListener('click', () => toggle());
+      header.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
 
-    const w = window.open('', '_blank', 'noopener');
-    if (!w) {
-      alert('Popup blocked. Please allow popups for this site to print.');
-      return;
+      section.appendChild(header);
+      section.appendChild(body);
+      return section;
     }
-    w.document.open();
-    w.document.write(printable);
-    w.document.close();
-  });
 
-  function formatDateString(input){
-    if (!input) return '';
-    if (/^\d{1,2}-[A-Za-z]{3}-\d{4}$/.test(input)) return input;
-    const d = new Date(input);
-    if (isNaN(d)) return input;
-    const day = String(d.getDate()).padStart(2,'0');
-    const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-    const mon = monthNames[d.getMonth()];
-    const yr = d.getFullYear();
-    return `${day}-${mon}-${yr}`;
-  }
+    function renderTerms(data){
+      document.getElementById('main-title').textContent = data.title || 'License Terms Agreement';
+      document.getElementById('subtitle').textContent = data.subtitle || 'Read the rules for personal and commercial use';
+      lastUpdatedEl.textContent = 'Last updated: ' + (data.lastUpdated || '—');
 
-  function escapeHtml(str){
-    return String(str || '').replace(/[&<>"']/g, function(m){
-      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]);
+      const email = data.contact && data.contact.email ? data.contact.email : '';
+      if (email){
+        emailLink.href = 'mailto:' + email;
+        emailText.textContent = email;
+        emailLink.setAttribute('aria-label', 'Email ' + email);
+      } else {
+        emailLink.href = '#';
+        emailText.textContent = 'contact';
+      }
+
+      accordion.innerHTML = '';
+      if (Array.isArray(data.sections)){
+        data.sections.forEach((s, i) => {
+          accordion.appendChild(renderSection(i, s));
+        });
+      } else {
+        accordion.appendChild(el('div', {}, 'No sections found in terms.json'));
+      }
+    }
+
+    fetch(SOURCE, {cache:'no-store'})
+      .then(resp => {
+        if (!resp.ok) throw new Error('Network response not ok');
+        return resp.json();
+      })
+      .then(json => renderTerms(json))
+      .catch(err => {
+        accordion.innerHTML = '';
+        accordion.appendChild(el('div', {}, 'Could not load terms.json. If you opened the file directly, run a local server or embed the JSON into the page.'));
+        console.error(err);
+      });
+
+    copyBtn.addEventListener('click', async () => {
+      const text = emailText.textContent || '';
+      try {
+        await navigator.clipboard.writeText(text);
+        copyBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#04263b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        setTimeout(() => {
+          copyBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 9H20V20H9V9Z" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 15H4C3.44772 15 3 14.5523 3 14V4C3 3.44772 3.44772 3 4 3H14C14.5523 3 15 3.44772 15 4V5" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        }, 1400);
+      } catch (e) {
+        const range = document.createRange();
+        range.selectNodeContents(emailText);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
     });
-  }
-})();
-</script>
+
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.trim().toLowerCase();
+      const sections = Array.from(accordion.querySelectorAll('.section'));
+      sections.forEach(sec => {
+        const title = sec.querySelector('.section-title strong').textContent.toLowerCase();
+        const body = sec.querySelector('.section-body').textContent.toLowerCase();
+        const match = !q || title.includes(q) || body.includes(q);
+        sec.style.display = match ? '' : 'none';
+      });
+    });
+
+    // Print button: opens browser print dialog
+    printBtn.addEventListener('click', () => {
+      // Ensure all sections are expanded for a complete print
+      const sections = accordion.querySelectorAll('.section');
+      sections.forEach(s => s.setAttribute('aria-expanded', 'true'));
+      // Small delay to allow expansion animation to finish
+      setTimeout(() => window.print(), 220);
+    });
+
+    // Save as PDF: uses html2pdf to generate a PDF of the main card
+    savePdfBtn.addEventListener('click', async () => {
+      const card = document.querySelector('.card');
+      if (!card) return;
+
+      // Expand all sections so PDF captures full content
+      const sections = accordion.querySelectorAll('.section');
+      sections.forEach(s => s.setAttribute('aria-expanded', 'true'));
+
+      // Build filename from title and date
+      const title = (document.getElementById('main-title').textContent || 'terms').replace(/\s+/g, '_').toLowerCase();
+      const date = new Date().toISOString().slice(0,10);
+      const filename = `${title}_${date}.pdf`;
+
+      // html2pdf options tuned for readable output
+      const opt = {
+        margin:       [12, 12, 12, 12], // top, left, bottom, right in mm
+        filename:     filename,
+        image:        { type: 'jpeg', quality: 0.95 },
+        html2canvas:  { scale: 2, useCORS: true, logging: false },
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+
+      // Temporarily clone the card into a clean container to avoid side effects from the UI
+      const clone = card.cloneNode(true);
+      // Remove interactive controls from clone (buttons, search, etc.)
+      clone.querySelectorAll('.controls, .chev, .copy-btn, .email-row, .card-footer .copy-btn').forEach(n => n && n.remove());
+      // Ensure body sections are fully visible
+      clone.querySelectorAll('.section-body').forEach(b => b.style.maxHeight = 'none');
+
+      const wrapper = document.createElement('div');
+      wrapper.style.padding = '12mm';
+      wrapper.style.background = '#ffffff';
+      wrapper.style.color = '#000';
+      wrapper.appendChild(clone);
+
+      // Generate PDF and trigger download
+      try {
+        html2pdf().set(opt).from(wrapper).save();
+      } catch (err) {
+        console.error('PDF generation failed', err);
+        // Fallback: open print dialog
+        window.print();
+      }
+    });
+
+    // Open first section by default after content loads
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const first = accordion.querySelector('.section');
+        if (first) first.setAttribute('aria-expanded', 'true');
+      }, 300);
+    });
+  </script>
 </body>
 </html>
