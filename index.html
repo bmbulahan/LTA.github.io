@@ -4,97 +4,59 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>License Terms Agreement</title>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg-0:#02102a;
-    --bg-1:#07243f;
-    --panel:#0b2b4a;
+    --bg:#07243f;            /* single dark-blue background */
+    --panel:#0b3354;
     --muted:#9fb6d6;
-    --accent:#4fb0ff;
-    --accent-2:#6aa0ff;
+    --accent:#6fb8ff;
     --glass: rgba(255,255,255,0.03);
-    --card-shadow: 0 10px 30px rgba(2,10,30,0.7);
     --btn-size:40px;
     --radius:14px;
     --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", monospace;
   }
 
-  html,body{height:100%;margin:0;background:
-    radial-gradient(1200px 600px at 10% 10%, rgba(79,176,255,0.04), transparent 8%),
-    linear-gradient(180deg,var(--bg-0) 0%, var(--bg-1) 100%);
-    font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    color:#e6f3ff; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-  }
-
-  .container{max-width:980px;margin:48px auto;padding:28px;border-radius:18px;
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    box-shadow:var(--card-shadow); border:1px solid rgba(255,255,255,0.03);
-  }
-
-  header{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
-  .last-update{font-size:13px;color:var(--muted);letter-spacing:0.02em}
-  .update-date{font-weight:600;color:#dff3ff;font-size:14px}
-
-  .top-row{display:flex;align-items:center;gap:12px;margin-top:8px;flex-wrap:wrap}
+  html,body{height:100%;margin:0;background:var(--bg);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;color:#eaf6ff;-webkit-font-smoothing:antialiased}
+  .container{max-width:980px;margin:48px auto;padding:28px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 12px 40px rgba(2,8,20,0.6);border:1px solid rgba(255,255,255,0.03)}
+  header{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+  .last-update{font-size:13px;color:var(--muted)}
+  .update-date{font-weight:600;color:#e6f9ff;font-size:14px}
+  .top-row{display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap}
   .contact{display:flex;align-items:center;gap:10px}
-  .btn-icon{
-    width:var(--btn-size);height:var(--btn-size);display:inline-grid;place-items:center;border-radius:10px;
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border:1px solid rgba(255,255,255,0.03);cursor:pointer;color:var(--accent);
-    transition:transform .12s ease, background .12s ease, box-shadow .12s ease;
-  }
-  .btn-icon:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(79,176,255,0.08)}
-  .selectable{user-select:text; -webkit-user-select:text; -moz-user-select:text;}
-  .email-row, .shop-row{display:flex;align-items:center;gap:10px;padding:10px;border-radius:12px;
-    background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
-    border:1px solid rgba(255,255,255,0.02);
-  }
-  .email-text, .shop-text{font-family:var(--mono);font-size:14px;color:#dff6ff;white-space:nowrap;overflow:auto}
+  .btn-icon{width:var(--btn-size);height:var(--btn-size);display:inline-grid;place-items:center;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);cursor:pointer;transition:transform .12s ease}
+  .btn-icon:hover{transform:translateY(-3px)}
+  .selectable{user-select:text;-webkit-user-select:text;-moz-user-select:text}
+  .email-row,.shop-row{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)}
+  .email-text,.shop-text{font-family:var(--mono);font-size:14px;color:#dff6ff;white-space:nowrap;overflow:auto}
   .spacer{flex:1}
-
   main{margin-top:18px}
   h1{margin:0;font-size:22px;color:#fff}
   .subtitle{color:var(--muted);margin-top:6px;font-size:13px}
-
-  .card{margin-top:18px;padding:20px;border-radius:14px;background:
-    linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
-    border:1px solid rgba(255,255,255,0.02);
-  }
+  .card{margin-top:18px;padding:20px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.02)}
   .section-title{font-weight:700;color:#eaf6ff;margin-bottom:10px;font-size:16px}
   .license-text{color:#dbeeff;line-height:1.6;font-size:15px}
   .license-text ol{padding-left:18px;margin:8px 0 0 0;color:var(--muted)}
   .license-text li{margin:12px 0}
-
-  .controls{display:flex;gap:10px;align-items:center;margin-top:12px}
-  .download-btn{
-    display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;
-    background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#042033;font-weight:600;
-    border:none;cursor:pointer;font-size:14px;box-shadow:0 8px 20px rgba(79,176,255,0.12);
-  }
-  .download-small{
-    width:36px;height:36px;border-radius:8px;padding:0;display:inline-grid;place-items:center;
-    background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.03);cursor:pointer;color:var(--accent);
-  }
+  .controls{display:flex;gap:10px;align-items:center;margin-top:14px}
+  .download-btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#4aa6ff);color:#042033;font-weight:600;border:none;cursor:pointer}
+  .download-small{width:36px;height:36px;border-radius:8px;padding:0;display:inline-grid;place-items:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.03);cursor:pointer;color:var(--accent)}
   footer{margin-top:18px;color:var(--muted);font-size:13px}
-
-  /* responsive */
   @media (max-width:720px){
     .top-row{flex-direction:column;align-items:flex-start}
     .spacer{display:none}
-    .email-text, .shop-text{font-size:13px}
+    .email-text,.shop-text{font-size:13px}
     .download-btn{font-size:13px;padding:8px 10px}
   }
 </style>
 </head>
 <body>
-  <div class="container" role="main">
+  <div class="container" role="main" aria-live="polite">
     <header>
       <div class="last-update">Last update</div>
       <div class="update-date" id="lastUpdate">--</div>
 
-      <div class="top-row" aria-hidden="false">
+      <div class="top-row">
         <div class="contact email-row" title="Email (click copy)">
           <button id="copyEmailBtn" class="btn-icon" aria-label="Copy email">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
@@ -102,7 +64,7 @@
               <rect x="9" y="3" width="11" height="14" rx="2" stroke="#bfe9ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="email-text selectable" id="emailText" aria-live="polite"></div>
+          <div class="email-text selectable" id="emailText"></div>
         </div>
 
         <div class="spacer" role="presentation"></div>
@@ -128,7 +90,7 @@
         <div class="section-title" id="licenseHeading"></div>
         <div class="license-text" id="licenseContent"></div>
 
-        <div class="controls" style="margin-top:16px;">
+        <div class="controls">
           <button id="downloadPdfBtn" class="download-btn" aria-label="Download license as PDF">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
               <path d="M12 3v12" stroke="#042033" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -158,7 +120,7 @@
 
 <script>
 (async function(){
-  // Load terms.json from same directory
+  // Load terms.json
   let data = null;
   try {
     const res = await fetch('terms.json', {cache: "no-store"});
@@ -166,7 +128,6 @@
     data = await res.json();
   } catch (e) {
     console.warn('Could not load terms.json:', e);
-    // Minimal fallback structure if file missing
     data = {
       title: "License Terms Agreement",
       subtitle: "Please read these terms carefully before using any items from the shop.",
@@ -178,24 +139,17 @@
     };
   }
 
-  // Populate UI from JSON
+  // Populate UI
   document.getElementById('pageTitle').textContent = data.title || '';
   document.getElementById('pageSubtitle').textContent = data.subtitle || '';
   document.getElementById('licenseHeading').textContent = data.title || '';
   document.getElementById('licenseContent').innerHTML = data.licenseHtml || '';
   document.getElementById('footerNote').textContent = data.footerNote || '';
+  document.getElementById('lastUpdate').textContent = formatDateString(data.lastUpdate || '');
+  document.getElementById('emailText').textContent = data.email || '';
+  document.getElementById('shopText').textContent = data.shop || '';
 
-  // Last update formatting (dd-MMM-yyyy)
-  const lastUpdateEl = document.getElementById('lastUpdate');
-  lastUpdateEl.textContent = formatDateString(data.lastUpdate || '');
-
-  // Email and shop text
-  const emailTextEl = document.getElementById('emailText');
-  const shopTextEl = document.getElementById('shopText');
-  emailTextEl.textContent = data.email || '';
-  shopTextEl.textContent = data.shop || '';
-
-  // Copy email button
+  // Copy email
   const copyBtn = document.getElementById('copyEmailBtn');
   copyBtn.addEventListener('click', async () => {
     if (!data.email) return;
@@ -204,34 +158,28 @@
       copyBtn.setAttribute('aria-label', 'Email copied');
       copyBtn.style.transform = 'translateY(-3px) scale(0.98)';
       setTimeout(()=>copyBtn.style.transform='', 220);
-    } catch (err) {
-      // fallback: select the text for manual copy
+    } catch {
       const range = document.createRange();
-      range.selectNodeContents(emailTextEl);
+      range.selectNodeContents(document.getElementById('emailText'));
       const sel = window.getSelection();
       sel.removeAllRanges();
       sel.addRange(range);
     }
   });
 
-  // Open shop button
-  const openShopBtn = document.getElementById('openShopBtn');
-  openShopBtn.addEventListener('click', () => {
+  // Open shop
+  document.getElementById('openShopBtn').addEventListener('click', () => {
     if (!data.shop) return;
     window.open(data.shop, '_blank', 'noopener');
   });
 
   // PDF generation
-  const downloadBtn = document.getElementById('downloadPdfBtn');
-  const downloadSmall = document.getElementById('downloadSmallBtn');
   async function generatePdfAndSave(filename = 'license-terms.pdf') {
     const card = document.getElementById('licenseCard');
-
-    // Clone and style for PDF rendering
     const clone = card.cloneNode(true);
     clone.style.width = '800px';
     clone.style.padding = '28px';
-    clone.style.background = '#071a36';
+    clone.style.background = '#07243f';
     clone.style.color = '#eaf6ff';
     clone.querySelectorAll('a').forEach(a => a.style.color = '#bfe9ff');
 
@@ -243,25 +191,14 @@
     document.body.appendChild(off);
 
     try {
-      const canvas = await html2canvas(clone, {
-        scale: 2,
-        backgroundColor: null,
-        useCORS: true,
-        logging: false
-      });
-
+      const canvas = await html2canvas(clone, {scale:2, backgroundColor:null, useCORS:true});
       const imgData = canvas.toDataURL('image/png');
       const { jsPDF } = window.jspdf;
-      const pdf = new jsPDF({
-        orientation: 'portrait',
-        unit: 'pt',
-        format: 'a4'
-      });
-
+      const pdf = new jsPDF({orientation:'portrait', unit:'pt', format:'a4'});
       const pageWidth = pdf.internal.pageSize.getWidth();
       const pageHeight = pdf.internal.pageSize.getHeight();
       const margin = 28;
-      const availableWidth = pageWidth - margin * 2;
+      const availableWidth = pageWidth - margin*2;
 
       const imgProps = await new Promise(resolve => {
         const img = new Image();
@@ -282,10 +219,9 @@
     }
   }
 
-  downloadBtn.addEventListener('click', () => generatePdfAndSave('license-terms.pdf'));
-  downloadSmall.addEventListener('click', () => generatePdfAndSave('license-terms.pdf'));
+  document.getElementById('downloadPdfBtn').addEventListener('click', () => generatePdfAndSave('license-terms.pdf'));
+  document.getElementById('downloadSmallBtn').addEventListener('click', () => generatePdfAndSave('license-terms.pdf'));
 
-  // Helper: format date to dd-MMM-yyyy
   function formatDateString(input){
     if (!input) return '';
     if (/^\d{1,2}-[A-Za-z]{3}-\d{4}$/.test(input)) return input;
