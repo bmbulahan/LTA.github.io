@@ -6,14 +6,13 @@
   <title>License Terms Agreement</title>
   <style>
     :root{
-      --dark-blue: #0b2540; /* unified single background color */
+      --dark-blue: #0b2540;
       --muted: #9aa4b2;
       --accent: #6ee7b7;
       --accent-2: #60a5fa;
       --text: #e6eef8;
       --radius: 14px;
       --max-width: 1100px;
-      --pad: 22px;
       --glass-border: rgba(255,255,255,0.04);
       --shadow: 0 10px 30px rgba(2,6,23,0.6);
       --transition: 240ms cubic-bezier(.2,.9,.3,1);
@@ -23,13 +22,12 @@
     html,body{
       height:100%;
       margin:0;
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
       background: var(--dark-blue);
       color:var(--text);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
-    a{color:inherit}
     .container{
       max-width:var(--max-width);
       margin:36px auto;
@@ -49,41 +47,56 @@
       box-shadow:var(--shadow);
       min-height:220px;
     }
-    .brand{
-      display:flex;gap:12px;align-items:center;margin-bottom:12px;
-    }
-    .logo{
-      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#04263b;font-size:20px;box-shadow:0 6px 18px rgba(6,30,50,0.35);
-    }
+    .brand{display:flex;gap:12px;align-items:center;margin-bottom:12px;}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#04263b;font-size:20px;box-shadow:0 6px 18px rgba(6,30,50,0.35);}
     .brand h1{font-size:1.05rem;margin:0}
     .brand p{margin:0;color:var(--muted);font-size:0.9rem}
     .panel .meta{margin-top:12px;color:var(--muted);font-size:0.92rem;line-height:1.45}
 
-    .email-row{display:flex;gap:10px;align-items:center;margin-top:16px}
-    .email-button{
-      display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);color:var(--text);font-weight:600;font-size:0.95rem;user-select:text;cursor:text;
+    /* Unified row style for email and shop so boxes match */
+    .left-rows{display:flex;flex-direction:column;gap:12px;margin-top:14px}
+    .row{
+      display:flex;
+      gap:10px;
+      align-items:center;
     }
-    .email-icon{width:18px;height:18px;opacity:0.95;display:inline-block}
-    .copy-btn{
-      display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#04263b;font-weight:700;border:none;cursor:pointer;box-shadow:0 8px 20px rgba(6,30,50,0.35);
-    }
-    .copy-btn:active{transform:translateY(1px)}
-    .small-note{font-size:0.85rem;color:var(--muted);margin-top:10px}
 
-    /* Shop row */
-    .shop-row{display:flex;gap:10px;align-items:center;margin-top:12px}
-    .shop-link{
-      display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);color:var(--text);font-weight:600;font-size:0.92rem;user-select:text;cursor:text;
-      max-width:100%;
+    /* Text boxes (email and shop) - identical sizing and styling */
+    .text-box{
+      flex:1;                 /* ensures both boxes take same available width */
+      min-width:0;           /* allow truncation on small screens */
+      padding:10px 12px;
+      border-radius:10px;
+      background: rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.04);
+      color:var(--text);
+      font-weight:600;
+      font-size:0.95rem;
+      user-select:text;      /* highlightable */
       overflow:hidden;
       text-overflow:ellipsis;
       white-space:nowrap;
+      cursor:text;           /* indicates selectable text, not a link */
     }
-    .shop-btn{
-      display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:linear-gradient(180deg,var(--accent-2),var(--accent));color:#04263b;font-weight:700;border:none;cursor:pointer;box-shadow:0 8px 20px rgba(6,30,50,0.35);
-      text-decoration:none;
+
+    /* Action buttons (copy email and open shop) - same size and alignment */
+    .action-btn{
+      width:44px;
+      height:44px;
+      border-radius:10px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:none;
+      cursor:pointer;
+      box-shadow:0 8px 20px rgba(6,30,50,0.35);
+      flex:0 0 44px;         /* fixed size */
     }
-    .shop-btn:active{transform:translateY(1px)}
+
+    .copy-btn{ background: linear-gradient(180deg,var(--accent),var(--accent-2)); color:#04263b; }
+    .shop-btn{ background: linear-gradient(180deg,var(--accent-2),var(--accent)); color:#04263b; text-decoration:none; display:inline-flex; }
+
+    .small-note{font-size:0.85rem;color:var(--muted);margin-top:8px}
 
     /* Main card */
     .card{
@@ -102,58 +115,42 @@
     .controls{display:flex;gap:10px;align-items:center}
     .search{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 10px;border-radius:10px;color:var(--text);min-width:220px;}
 
-    /* Accordion (all sections visible and non-collapsible) */
+    /* Sections always visible */
     .accordion{margin-top:18px;display:grid;gap:12px}
-    .section{
-      border-radius:12px;overflow:visible;border:1px solid rgba(255,255,255,0.03);background: rgba(255,255,255,0.01);
-      transition:transform var(--transition), box-shadow var(--transition);
-    }
-    .section[aria-expanded="true"]{box-shadow:0 18px 40px rgba(2,6,23,0.6);transform:none}
-    .section-header{
-      display:flex;align-items:flex-start;justify-content:space-between;padding:14px 16px;gap:12px;
-      cursor:default;
-    }
+    .section{border-radius:12px;overflow:visible;border:1px solid rgba(255,255,255,0.03);background: rgba(255,255,255,0.01);}
+    .section-header{display:flex;align-items:flex-start;justify-content:space-between;padding:14px 16px;gap:12px;cursor:default;}
     .section-title{display:flex;flex-direction:column}
     .section-title strong{font-size:0.98rem}
     .section-title span{font-size:0.86rem;color:var(--muted)}
-    .chev{display:none}
-
-    /* bodies always visible */
-    .section-body{
-      padding:12px 18px 18px 18px;color:var(--text);line-height:1.6;max-height:none;overflow:visible;
-    }
-
+    .section-body{padding:12px 18px 18px 18px;color:var(--text);line-height:1.6;max-height:none;overflow:visible;}
     .section-body p{margin:0 0 10px 0;color:#dbe9f8}
     .section-body ul{margin:8px 0 0 1.1rem;color:#dbe9f8}
     .section-body li{margin:6px 0}
 
     .card-footer{margin-top:18px;color:var(--muted);font-size:0.9rem;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-
     .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-size:0.85rem;color:var(--muted)}
-    .fade-in{animation:fadeIn .6s ease both}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
-    /* Print styles: keep it clean and readable */
+    /* Print styles */
     @media print {
-      body{background: #fff; color:#000}
+      body{background:#fff;color:#000}
       .container{max-width:100%;display:block;padding:0}
       .panel{display:none}
       .card{padding:12mm;background:#fff;color:#000;border:none;box-shadow:none}
       .section{page-break-inside:avoid}
       .section-body{max-height:none;overflow:visible;padding-top:12px}
-      .controls, .copy-btn, .shop-btn{display:none}
+      .controls, .action-btn{display:none}
     }
 
     @media (max-width:920px){
-      .container{grid-template-columns:1fr; padding:18px}
+      .container{grid-template-columns:1fr;padding:18px}
       .panel{order:2}
       .card{order:1}
-      .shop-link{white-space:normal}
+      .text-box{white-space:normal}
     }
   </style>
 </head>
 <body>
-  <div class="container fade-in">
+  <div class="container">
     <aside class="panel" aria-labelledby="panel-title">
       <div class="brand">
         <div class="logo" aria-hidden="true">LT</div>
@@ -163,44 +160,34 @@
         </div>
       </div>
 
-      <div class="meta">
-        Keep these terms visible to buyers. The email and shop link are selectable and copyable.
-      </div>
+      <div class="meta">Keep these terms visible to buyers. The email and shop link are selectable and copyable.</div>
 
-      <div class="email-row" style="margin-top:14px">
-        <!-- Email displayed as selectable text (not a clickable link) -->
-        <div id="emailLink" class="email-button" title="Contact email (select or copy)">
-          <svg class="email-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M3 6.5C3 5.67157 3.67157 5 4.5 5H19.5C20.3284 5 21 5.67157 21 6.5V17.5C21 18.3284 20.3284 19 19.5 19H4.5C3.67157 19 3 18.3284 3 17.5V6.5Z" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M21 6.5L12 12.5L3 6.5" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span id="emailText">loading...</span>
+      <div class="left-rows">
+        <!-- Email row: text box + copy button (same size as shop button) -->
+        <div class="row" aria-label="Contact email">
+          <div id="emailText" class="text-box" title="Contact email (select or copy)">loading...</div>
+          <button id="copyBtn" class="action-btn copy-btn" title="Copy email" aria-label="Copy email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 9H20V20H9V9Z" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5 15H4C3.44772 15 3 14.5523 3 14V4C3 3.44772 3.44772 3 4 3H14C14.5523 3 15 3.44772 15 4V5" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </div>
 
-        <button id="copyBtn" class="copy-btn" title="Copy email">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M9 9H20V20H9V9Z" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M5 15H4C3.44772 15 3 14.5523 3 14V4C3 3.44772 3.44772 3 4 3H14C14.5523 3 15 3.44772 15 4V5" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Shop link row: selectable text + button that opens shop in new tab -->
-      <div class="shop-row" aria-label="Shop link">
-        <div id="shopText" class="shop-link" title="Shop URL (select or copy)">
-          https://ko-fi.com/bmbulahan/shop
+        <!-- Shop row: text box + open-in-new-tab button (same size and aligned) -->
+        <div class="row" aria-label="Shop link">
+          <div id="shopText" class="text-box" title="Shop URL (select or copy)">https://ko-fi.com/bmbulahan/shop</div>
+          <a id="shopBtn" class="action-btn shop-btn" href="https://ko-fi.com/bmbulahan/shop" target="_blank" rel="noopener noreferrer" title="Open shop in new tab" aria-label="Open shop in new tab">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M14 3h7v7" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 14L21 3" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 21H3V3" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
         </div>
 
-        <a id="shopBtn" class="shop-btn" href="https://ko-fi.com/bmbulahan/shop" target="_blank" rel="noopener noreferrer" title="Open shop in new tab">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M14 3h7v7" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M10 14L21 3" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M21 21H3V3" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
+        <div class="small-note">Tip: highlight the email or shop link to copy, or use the copy button for the email.</div>
       </div>
-
-      <div class="small-note">Tip: highlight the email or shop link to copy, or use the copy button for the email.</div>
     </aside>
 
     <main class="card" role="main" aria-labelledby="main-title">
@@ -216,8 +203,8 @@
         </div>
       </div>
 
-      <div id="accordion" class="accordion" aria-live="polite" style="margin-top:12px">
-        <!-- Sections injected here (all visible, non-collapsible) -->
+      <div id="accordion" class="accordion" aria-live="polite">
+        <!-- Sections injected here -->
       </div>
 
       <div class="card-footer">
@@ -226,33 +213,33 @@
           <div class="pill" id="sourceAttribution">Source: terms.json</div>
         </div>
 
-        <!-- Save PDF control only -->
         <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-          <button id="savePdfBtn" class="copy-btn" title="Save as PDF" style="background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#04263b;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 2v8" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M7 10l5 5 5-5" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <button id="savePdfBtn" class="action-btn copy-btn" title="Save as PDF" style="width:auto;padding:8px 12px;border-radius:10px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="margin-right:8px">
+              <path d="M12 2v8" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 10l5 5 5-5" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
+            Save as PDF
           </button>
         </div>
       </div>
     </main>
   </div>
 
-  <!-- html2pdf library for client-side PDF generation -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js" integrity="sha512-YcsIPb0bq3qkq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq3kq==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- html2pdf library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script>
     const SOURCE = 'terms.json';
     const emailText = document.getElementById('emailText');
     const copyBtn = document.getElementById('copyBtn');
+    const shopText = document.getElementById('shopText');
+    const shopBtn = document.getElementById('shopBtn');
     const accordion = document.getElementById('accordion');
     const lastUpdatedEl = document.getElementById('lastUpdated');
     const searchInput = document.getElementById('searchInput');
     const savePdfBtn = document.getElementById('savePdfBtn');
-    const shopText = document.getElementById('shopText');
-    const shopBtn = document.getElementById('shopBtn');
 
     function el(tag, props = {}, ...children){
       const node = document.createElement(tag);
@@ -265,7 +252,6 @@
       return node;
     }
 
-    // Render a section (non-collapsible, expanded by default)
     function renderSection(idx, sec){
       const section = el('section', {'class':'section', 'aria-expanded':'true', 'data-index': idx});
       const header = el('div', {'class':'section-header'});
@@ -300,29 +286,22 @@
       document.getElementById('subtitle').textContent = data.subtitle || 'Read the rules for personal and commercial use';
       lastUpdatedEl.textContent = 'Last updated: ' + (data.lastUpdated || '—');
 
-      const email = data.contact && data.contact.email ? data.contact.email : '';
-      if (email){
-        emailText.textContent = email;
-      } else {
-        emailText.textContent = 'contact';
-      }
+      const email = data.contact && data.contact.email ? data.contact.email : 'bulahan.belmar@gmail.com';
+      emailText.textContent = email;
 
-      // If terms.json contains a shop link, use it; otherwise fallback to the provided URL
       const shopFromJson = data.contact && data.contact.shop ? data.contact.shop : 'https://ko-fi.com/bmbulahan/shop';
       shopText.textContent = shopFromJson;
       shopBtn.href = shopFromJson;
 
       accordion.innerHTML = '';
       if (Array.isArray(data.sections)){
-        data.sections.forEach((s, i) => {
-          accordion.appendChild(renderSection(i, s));
-        });
+        data.sections.forEach((s, i) => accordion.appendChild(renderSection(i, s)));
       } else {
         accordion.appendChild(el('div', {}, 'No sections found in terms.json'));
       }
     }
 
-    // Fetch JSON and render
+    // Load JSON
     fetch(SOURCE, {cache:'no-store'})
       .then(resp => {
         if (!resp.ok) throw new Error('Network response not ok');
@@ -330,24 +309,27 @@
       })
       .then(json => renderTerms(json))
       .catch(err => {
-        accordion.innerHTML = '';
-        accordion.appendChild(el('div', {}, 'Could not load terms.json. If you opened the file directly, run a local server or embed the JSON into the page.'));
-        // still set default shop link even if JSON failed
+        // fallback defaults
+        emailText.textContent = 'bulahan.belmar@gmail.com';
         shopText.textContent = 'https://ko-fi.com/bmbulahan/shop';
         shopBtn.href = 'https://ko-fi.com/bmbulahan/shop';
+        accordion.innerHTML = '';
+        accordion.appendChild(el('div', {}, 'Could not load terms.json. Edit terms.json in the same folder and reload.'));
         console.error(err);
       });
 
-    // Copy email
+    // Copy email to clipboard
     copyBtn.addEventListener('click', async () => {
       const text = emailText.textContent || '';
       try {
         await navigator.clipboard.writeText(text);
-        copyBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#04263b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        // visual feedback: temporarily change button content
+        copyBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
         setTimeout(() => {
-          copyBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 9H20V20H9V9Z" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 15H4C3.44772 15 3 14.5523 3 14V4C3 3.44772 3.44772 3 4 3H14C14.5523 3 15 3.44772 15 4V5" stroke="#04263b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-        }, 1400);
+          copyBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 9H20V20H9V9Z" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 15H4C3.44772 15 3 14.5523 3 14V4C3 3.44772 3.44772 3 4 3H14C14.5523 3 15 3.44772 15 4V5" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        }, 1200);
       } catch (e) {
+        // fallback: select text for manual copy
         const range = document.createRange();
         range.selectNodeContents(emailText);
         const sel = window.getSelection();
@@ -356,7 +338,7 @@
       }
     });
 
-    // Search filter (hides non-matching sections)
+    // Search filter
     searchInput.addEventListener('input', () => {
       const q = searchInput.value.trim().toLowerCase();
       const sections = Array.from(accordion.querySelectorAll('.section'));
@@ -368,47 +350,34 @@
       });
     });
 
-    // Save as PDF using html2pdf (all content visible)
+    // Save as PDF
     savePdfBtn.addEventListener('click', async () => {
       const card = document.querySelector('.card');
       if (!card) return;
-
       const title = (document.getElementById('main-title').textContent || 'terms').replace(/\s+/g, '_').toLowerCase();
       const date = new Date().toISOString().slice(0,10);
       const filename = `${title}_${date}.pdf`;
-
       const opt = {
-        margin:       [12, 12, 12, 12],
-        filename:     filename,
-        image:        { type: 'jpeg', quality: 0.95 },
-        html2canvas:  { scale: 2, useCORS: true, logging: false },
-        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        margin: [12,12,12,12],
+        filename,
+        image: { type: 'jpeg', quality: 0.95 },
+        html2canvas: { scale: 2, useCORS: true, logging: false },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
       };
-
       const clone = card.cloneNode(true);
-      // Remove interactive controls from clone
-      clone.querySelectorAll('.controls, .copy-btn').forEach(n => n && n.remove());
+      clone.querySelectorAll('.controls, .action-btn').forEach(n => n && n.remove());
       clone.querySelectorAll('.section-body').forEach(b => { b.style.maxHeight = 'none'; b.style.overflow = 'visible'; });
-
       const wrapper = document.createElement('div');
       wrapper.style.padding = '12mm';
       wrapper.style.background = '#ffffff';
       wrapper.style.color = '#000';
       wrapper.appendChild(clone);
-
       try {
         html2pdf().set(opt).from(wrapper).save();
       } catch (err) {
         console.error('PDF generation failed', err);
         window.print();
       }
-    });
-
-    // Make shop button open in new tab (redundant because anchor has target, but ensures behavior)
-    shopBtn.addEventListener('click', (e) => {
-      // anchor already handles opening in new tab; no extra JS needed
-      // keep this handler to ensure consistent behavior if JS is used
-      // nothing to do here
     });
   </script>
 </body>
