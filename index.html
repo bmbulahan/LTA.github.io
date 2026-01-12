@@ -11,12 +11,14 @@
       --accent: #6ee7b7;
       --accent-2: #60a5fa;
       --text: #e6eef8;
-      --radius: 14px;
+      --radius: 12px;
       --max-width: 1100px;
       --glass-border: rgba(255,255,255,0.04);
       --shadow: 0 10px 30px rgba(2,6,23,0.6);
-      --transition: 240ms cubic-bezier(.2,.9,.3,1);
-      --control-height: 40px; /* unified control height for search and last-updated */
+      --transition: 220ms cubic-bezier(.2,.9,.3,1);
+      --control-height: 36px; /* unified control height for search and last-updated */
+      --btn-size: 36px;       /* smaller square action buttons */
+      --box-height: 36px;     /* shorter text boxes for email/shop */
     }
 
     /* Base */
@@ -44,59 +46,77 @@
     .panel{
       background: var(--dark-blue);
       border-radius:var(--radius);
-      padding:20px;
+      padding:18px;
       border:1px solid var(--glass-border);
       box-shadow:var(--shadow);
       min-height:220px;
     }
+
     .brand{display:flex;gap:12px;align-items:center;margin-bottom:12px;}
-    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#04263b;font-size:20px;box-shadow:0 6px 18px rgba(6,30,50,0.35);}
+    /* LT box: square with subtle rounding */
+    .logo{
+      width:64px;
+      height:64px;
+      border-radius:6px; /* square-ish with small radius */
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:#04263b;
+      font-size:20px;
+      box-shadow:0 6px 18px rgba(6,30,50,0.35);
+      flex:0 0 64px;
+    }
+
     .brand h1{font-size:1.05rem;margin:0}
     .brand p{margin:0;color:var(--muted);font-size:0.9rem}
-    .panel .meta{margin-top:12px;color:var(--muted);font-size:0.92rem;line-height:1.45}
+    .panel .meta{margin-top:10px;color:var(--muted);font-size:0.92rem;line-height:1.45}
 
     /* Left rows */
-    .left-rows{display:flex;flex-direction:column;gap:12px;margin-top:14px}
+    .left-rows{display:flex;flex-direction:column;gap:10px;margin-top:12px}
     .row{display:flex;gap:10px;align-items:center;}
 
-    /* Text boxes (email and shop) - identical sizing and styling */
+    /* Text boxes (email and shop) - identical shorter sizing and styling */
     .text-box{
       flex:1;
       min-width:0;
-      padding:10px 12px;
+      padding:8px 10px;
       border-radius:10px;
       background: rgba(255,255,255,0.02);
       border:1px solid rgba(255,255,255,0.04);
       color:var(--text);
       font-weight:600;
-      font-size:0.95rem;
+      font-size:0.92rem;
       user-select:text;
       overflow:hidden;
       text-overflow:ellipsis;
       white-space:nowrap;
       cursor:text;
-      height:44px;
+      height:var(--box-height);
       display:flex;
       align-items:center;
     }
 
-    /* Action buttons (copy email and open shop) - same size and alignment */
+    /* Action buttons (copy email and open shop) - smaller square and aligned */
     .action-btn{
-      width:44px;
-      height:44px;
-      border-radius:10px;
+      width:var(--btn-size);
+      height:var(--btn-size);
+      border-radius:8px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
       border:none;
       cursor:pointer;
-      box-shadow:0 8px 20px rgba(6,30,50,0.35);
-      flex:0 0 44px;
+      box-shadow:0 8px 20px rgba(6,30,50,0.28);
+      flex:0 0 var(--btn-size);
+      transition:transform var(--transition), box-shadow var(--transition);
     }
+    .action-btn:active{ transform: translateY(1px); }
     .copy-btn{ background: linear-gradient(180deg,var(--accent),var(--accent-2)); color:#04263b; }
     .shop-btn{ background: linear-gradient(180deg,var(--accent-2),var(--accent)); color:#04263b; text-decoration:none; display:inline-flex; }
 
-    .small-note{font-size:0.85rem;color:var(--muted);margin-top:8px}
+    .small-note{font-size:0.84rem;color:var(--muted);margin-top:8px}
 
     /* Main card */
     .card{
@@ -117,12 +137,13 @@
     .search{
       background:transparent;
       border:1px solid rgba(255,255,255,0.04);
-      padding:8px 10px;
+      padding:6px 10px;
       border-radius:10px;
       color:var(--text);
       min-width:220px;
       height:var(--control-height);
       box-sizing:border-box;
+      font-size:0.95rem;
     }
 
     /* Last-updated box: same height as search, with label and date stacked */
@@ -137,11 +158,11 @@
       background: rgba(255,255,255,0.02);
       border:1px solid rgba(255,255,255,0.04);
       color:var(--muted);
-      min-width:140px;
+      min-width:160px;
       height:var(--control-height);
       box-sizing:border-box;
     }
-    .last-updated-box .label{font-size:0.85rem;color:var(--muted);line-height:1}
+    .last-updated-box .label{font-size:0.82rem;color:var(--muted);line-height:1}
     .last-updated-box .date{font-size:0.92rem;color:var(--text);font-weight:600;line-height:1}
 
     /* Sections always visible */
@@ -161,15 +182,15 @@
 
     /* Save-as-PDF icon button in footer (small icon-only button) */
     .pdf-icon-btn{
-      width:44px;
-      height:44px;
-      border-radius:10px;
+      width:40px;
+      height:40px;
+      border-radius:8px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
       border:none;
       cursor:pointer;
-      box-shadow:0 8px 20px rgba(6,30,50,0.35);
+      box-shadow:0 8px 20px rgba(6,30,50,0.28);
       background: linear-gradient(180deg,var(--accent),var(--accent-2));
       color:#04263b;
     }
@@ -189,7 +210,7 @@
       .container{grid-template-columns:1fr;padding:18px}
       .panel{order:2}
       .card{order:1}
-      .text-box{white-space:normal}
+      .text-box{white-space:normal;height:40px}
       .controls{flex-direction:column;align-items:stretch}
       .last-updated-box{width:100%;height:auto;padding:10px}
       .search{width:100%}
@@ -214,7 +235,7 @@
         <div class="row" aria-label="Contact email">
           <div id="emailText" class="text-box" title="Contact email (select or copy)">loading...</div>
           <button id="copyBtn" class="action-btn copy-btn" title="Copy email" aria-label="Copy email">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M9 9H20V20H9V9Z" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M5 15H4C3.44772 15 3 14.5523 3 14V4C3 3.44772 3.44772 3 4 3H14C14.5523 3 15 3.44772 15 4V5" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -225,7 +246,7 @@
         <div class="row" aria-label="Shop link">
           <div id="shopText" class="text-box" title="Shop URL (select or copy)">https://ko-fi.com/bmbulahan/shop</div>
           <a id="shopBtn" class="action-btn shop-btn" href="https://ko-fi.com/bmbulahan/shop" target="_blank" rel="noopener noreferrer" title="Open shop in new tab" aria-label="Open shop in new tab">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M14 3h7v7" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M10 14L21 3" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M21 21H3V3" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -266,7 +287,7 @@
         <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
           <!-- Save as PDF icon-only button -->
           <button id="savePdfBtn" class="pdf-icon-btn" title="Save as PDF" aria-label="Save as PDF">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M12 2v8" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M7 10l5 5 5-5" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -331,18 +352,37 @@
       return section;
     }
 
+    function formatWithWeekday(raw){
+      // Try to parse raw string; if not parseable, fallback to today
+      let d = new Date(raw);
+      if (isNaN(d)) {
+        // Try parsing month-year like "January 2026" by adding day 1
+        const tryMonthYear = new Date(raw + ' 1');
+        if (!isNaN(tryMonthYear)) d = tryMonthYear;
+        else d = new Date();
+      }
+      // Format with weekday, e.g., "Monday, 12 January 2026"
+      return d.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
     function renderTerms(data){
       document.getElementById('main-title').textContent = data.title || 'License Terms Agreement';
       document.getElementById('subtitle').textContent = data.subtitle || 'Read the rules for personal and commercial use';
-      lastUpdatedEl.textContent = data.lastUpdated || '—';
 
+      // Last updated: prefer data.lastUpdated if present; format to include weekday
+      const rawLast = data.lastUpdated || '';
+      lastUpdatedEl.textContent = rawLast ? formatWithWeekday(rawLast) : formatWithWeekday(new Date());
+
+      // Email
       const email = data.contact && data.contact.email ? data.contact.email : 'bulahan.belmar@gmail.com';
       emailText.textContent = email;
 
+      // Shop link (from JSON if present)
       const shopFromJson = data.contact && data.contact.shop ? data.contact.shop : 'https://ko-fi.com/bmbulahan/shop';
       shopText.textContent = shopFromJson;
       shopBtn.href = shopFromJson;
 
+      // Sections
       accordion.innerHTML = '';
       if (Array.isArray(data.sections)){
         data.sections.forEach((s, i) => accordion.appendChild(renderSection(i, s)));
@@ -363,7 +403,7 @@
         emailText.textContent = 'bulahan.belmar@gmail.com';
         shopText.textContent = 'https://ko-fi.com/bmbulahan/shop';
         shopBtn.href = 'https://ko-fi.com/bmbulahan/shop';
-        lastUpdatedEl.textContent = '—';
+        lastUpdatedEl.textContent = formatWithWeekday(new Date());
         accordion.innerHTML = '';
         accordion.appendChild(el('div', {}, 'Could not load terms.json. Edit terms.json in the same folder and reload.'));
         console.error(err);
@@ -374,11 +414,13 @@
       const text = emailText.textContent || '';
       try {
         await navigator.clipboard.writeText(text);
-        copyBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        // visual feedback: temporarily change button icon
+        copyBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
         setTimeout(() => {
-          copyBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 9H20V20H9V9Z" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 15H4C3.44772 15 3 14.5523 3 14V4C3 3.44772 3.44772 3 4 3H14C14.5523 3 15 3.44772 15 4V5" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-        }, 1200);
+          copyBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 9H20V20H9V9Z" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 15H4C3.44772 15 3 14.5523 3 14V4C3 3.44772 3.44772 3 4 3H14C14.5523 3 15 3.44772 15 4V5" stroke="#04263b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        }, 1100);
       } catch (e) {
+        // fallback: select text for manual copy
         const range = document.createRange();
         range.selectNodeContents(emailText);
         const sel = window.getSelection();
