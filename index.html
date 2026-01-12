@@ -4,78 +4,116 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>License Terms Agreement</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0b0f14;
-    --panel:#0f1720;
-    --muted:#9aa6b2;
-    --accent:#7c5cff;
+    --bg-0:#02102a;
+    --bg-1:#07243f;
+    --panel:#0b2b4a;
+    --muted:#9fb6d6;
+    --accent:#4fb0ff;
+    --accent-2:#6aa0ff;
     --glass: rgba(255,255,255,0.03);
-    --card-shadow: 0 6px 18px rgba(2,6,23,0.7);
-    --btn-size:36px;
-    --radius:12px;
+    --card-shadow: 0 10px 30px rgba(2,10,30,0.7);
+    --btn-size:40px;
+    --radius:14px;
     --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", monospace;
   }
-  html,body{height:100%;margin:0;background:linear-gradient(180deg,#071018 0%, #08121a 100%);font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:#e6eef6;}
-  .wrap{max-width:920px;margin:48px auto;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:16px;box-shadow:var(--card-shadow);border:1px solid rgba(255,255,255,0.03);}
-  header{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+
+  html,body{height:100%;margin:0;background:
+    radial-gradient(1200px 600px at 10% 10%, rgba(79,176,255,0.04), transparent 8%),
+    linear-gradient(180deg,var(--bg-0) 0%, var(--bg-1) 100%);
+    font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color:#e6f3ff; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
+
+  .container{max-width:980px;margin:48px auto;padding:28px;border-radius:18px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    box-shadow:var(--card-shadow); border:1px solid rgba(255,255,255,0.03);
+  }
+
+  header{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
   .last-update{font-size:13px;color:var(--muted);letter-spacing:0.02em}
-  .update-date{font-weight:600;color:#dbe9ff;font-size:14px}
-  .top-row{display:flex;align-items:center;gap:12px;margin-top:6px;flex-wrap:wrap}
+  .update-date{font-weight:600;color:#dff3ff;font-size:14px}
+
+  .top-row{display:flex;align-items:center;gap:12px;margin-top:8px;flex-wrap:wrap}
   .contact{display:flex;align-items:center;gap:10px}
   .btn-icon{
-    width:var(--btn-size);height:var(--btn-size);display:inline-grid;place-items:center;border-radius:8px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);cursor:pointer;
-    transition:transform .12s ease, background .12s ease;
+    width:var(--btn-size);height:var(--btn-size);display:inline-grid;place-items:center;border-radius:10px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border:1px solid rgba(255,255,255,0.03);cursor:pointer;color:var(--accent);
+    transition:transform .12s ease, background .12s ease, box-shadow .12s ease;
   }
-  .btn-icon:hover{transform:translateY(-2px);background:rgba(255,255,255,0.04)}
+  .btn-icon:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(79,176,255,0.08)}
   .selectable{user-select:text; -webkit-user-select:text; -moz-user-select:text;}
-  .email-row, .shop-row{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.02)}
-  .email-text, .shop-text{font-family:var(--mono);font-size:14px;color:#cfe6ff}
+  .email-row, .shop-row{display:flex;align-items:center;gap:10px;padding:10px;border-radius:12px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+    border:1px solid rgba(255,255,255,0.02);
+  }
+  .email-text, .shop-text{font-family:var(--mono);font-size:14px;color:#dff6ff;white-space:nowrap;overflow:auto}
   .spacer{flex:1}
+
   main{margin-top:18px}
-  h1{margin:0;font-size:20px;color:#fff}
+  h1{margin:0;font-size:22px;color:#fff}
   .subtitle{color:var(--muted);margin-top:6px;font-size:13px}
-  .card{margin-top:18px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.02)}
-  ol{padding-left:18px;margin:12px 0 0 0;color:var(--muted)}
-  li{margin:12px 0}
-  .section-title{font-weight:700;color:#eaf3ff;margin-bottom:8px}
-  .license-text{color:#dbe9ff;line-height:1.6}
+
+  .card{margin-top:18px;padding:20px;border-radius:14px;background:
+    linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+    border:1px solid rgba(255,255,255,0.02);
+  }
+  .section-title{font-weight:700;color:#eaf6ff;margin-bottom:10px;font-size:16px}
+  .license-text{color:#dbeeff;line-height:1.6;font-size:15px}
+  .license-text ol{padding-left:18px;margin:8px 0 0 0;color:var(--muted)}
+  .license-text li{margin:12px 0}
+
+  .controls{display:flex;gap:10px;align-items:center;margin-top:12px}
+  .download-btn{
+    display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#042033;font-weight:600;
+    border:none;cursor:pointer;font-size:14px;box-shadow:0 8px 20px rgba(79,176,255,0.12);
+  }
+  .download-small{
+    width:36px;height:36px;border-radius:8px;padding:0;display:inline-grid;place-items:center;
+    background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.03);cursor:pointer;color:var(--accent);
+  }
   footer{margin-top:18px;color:var(--muted);font-size:13px}
-  /* small responsive */
-  @media (max-width:640px){
-    .wrap{margin:18px;padding:18px}
+
+  /* responsive */
+  @media (max-width:720px){
     .top-row{flex-direction:column;align-items:flex-start}
+    .spacer{display:none}
+    .email-text, .shop-text{font-size:13px}
+    .download-btn{font-size:13px;padding:8px 10px}
   }
 </style>
 </head>
 <body>
-  <div class="wrap" role="main">
+  <div class="container" role="main">
     <header>
       <div class="last-update">Last update</div>
       <div class="update-date" id="lastUpdate">--</div>
 
-      <div class="top-row">
+      <div class="top-row" aria-hidden="false">
         <div class="contact email-row" title="Email (click copy)">
           <button id="copyEmailBtn" class="btn-icon" aria-label="Copy email">
-            <!-- copy icon -->
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
-              <path d="M16 21H8a2 2 0 0 1-2-2V7" stroke="#cfe6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <rect x="9" y="3" width="11" height="14" rx="2" stroke="#cfe6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 21H8a2 2 0 0 1-2-2V7" stroke="#bfe9ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="9" y="3" width="11" height="14" rx="2" stroke="#bfe9ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <div class="email-text selectable" id="emailText" aria-live="polite">loading...</div>
+          <div class="email-text selectable" id="emailText" aria-live="polite"></div>
         </div>
 
-        <div class="spacer"></div>
+        <div class="spacer" role="presentation"></div>
 
         <div class="contact shop-row" title="Shop link">
-          <div class="shop-text selectable" id="shopText">loading...</div>
+          <div class="shop-text selectable" id="shopText"></div>
           <button id="openShopBtn" class="btn-icon" aria-label="Open shop in new tab">
-            <!-- external link icon -->
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
-              <path d="M14 3h7v7" stroke="#cfe6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M10 14L21 3" stroke="#cfe6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M21 21H3V3" stroke="#cfe6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 3h7v7" stroke="#bfe9ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 14L21 3" stroke="#bfe9ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 21H3V3" stroke="#bfe9ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
         </div>
@@ -83,106 +121,88 @@
     </header>
 
     <main>
-      <h1>License Terms Agreement</h1>
-      <div class="subtitle">Please read these terms carefully before using any items from the shop.</div>
+      <h1 id="pageTitle">License Terms Agreement</h1>
+      <div class="subtitle" id="pageSubtitle">Please read these terms carefully before using any items from the shop.</div>
 
       <section class="card" id="licenseCard" aria-labelledby="licenseHeading">
-        <div class="section-title" id="licenseHeading">License Terms Agreement</div>
-        <div class="license-text" id="licenseContent">
-          <!-- license content will be injected here from JSON -->
-          Loading license...
+        <div class="section-title" id="licenseHeading"></div>
+        <div class="license-text" id="licenseContent"></div>
+
+        <div class="controls" style="margin-top:16px;">
+          <button id="downloadPdfBtn" class="download-btn" aria-label="Download license as PDF">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <path d="M12 3v12" stroke="#042033" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 11l4 4 4-4" stroke="#042033" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="#042033" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Download PDF
+          </button>
+
+          <button id="downloadSmallBtn" class="download-small" title="Download PDF (small)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <path d="M12 3v12" stroke="#6fbfff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 11l4 4 4-4" stroke="#6fbfff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </div>
       </section>
 
       <footer>
-        <div>By purchasing, downloading, or using any item or file from this shop, you acknowledge that you have read, understood, and agreed to these License Terms.</div>
+        <div id="footerNote"></div>
       </footer>
     </main>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 <script>
 (async function(){
-  const defaults = {
-    lastUpdate: "12-Jan-2026",
-    email: "Bulahan.belmar@gmail.om",
-    shop: "https://ko-fi.com/bmbulahan/shop",
-    licenseHtml: `
-      <ol>
-        <li>
-          <strong>Personal Use Only</strong>
-          <div>All items and files purchased from this shop are licensed solely for personal use. Commercial use of any kind—including but not limited to resale, reproduction, distribution, or incorporation into products for sale—is strictly prohibited unless prior written permission is obtained.</div>
-        </li>
-        <li>
-          <strong>Restrictions on 3D Models and Files</strong>
-          <div>Any 3D model, or portion thereof, whether in digital or physical format, may not be:
-            <ul>
-              <li>Shared or transmitted to others</li>
-              <li>Redistributed or uploaded to any platform</li>
-              <li>Remixed, altered, or duplicated for distribution</li>
-              <li>Sold, licensed, or otherwise monetized</li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <strong>Ownership</strong>
-          <div>All items and files remain the intellectual property of ko-fi.com/bmbulahan. Purchase grants the buyer a non-exclusive, non-transferable license for personal use only.</div>
-        </li>
-        <li>
-          <strong>Enforcement</strong>
-          <div>Violation of these terms may result in revocation of license, removal of access, and potential legal action.</div>
-        </li>
-        <li>
-          <strong>Commercial Licensing Contact</strong>
-          <div>If you wish to use any item or file for commercial purposes, you must obtain a separate commercial license. Please contact at <span id="contactEmailInline">Bulahan.belmar@gmail.om</span> to discuss licensing terms, fees, and permissions.</div>
-        </li>
-        <li>
-          <strong>Agreement</strong>
-          <div>By purchasing, downloading, or using any item or file from this shop, you acknowledge that you have read, understood, and agreed to these License Terms.</div>
-        </li>
-      </ol>
-    `
-  };
-
-  // Attempt to fetch data.json from same directory
-  let data = defaults;
+  // Load terms.json from same directory
+  let data = null;
   try {
-    const res = await fetch('data.json', {cache: "no-store"});
-    if (res.ok) {
-      const json = await res.json();
-      // Basic validation and fallback
-      data = {
-        lastUpdate: json.lastUpdate || defaults.lastUpdate,
-        email: json.email || defaults.email,
-        shop: json.shop || defaults.shop,
-        licenseHtml: json.licenseHtml || defaults.licenseHtml
-      };
-    }
+    const res = await fetch('terms.json', {cache: "no-store"});
+    if (!res.ok) throw new Error('terms.json not found');
+    data = await res.json();
   } catch (e) {
-    // fetch failed; keep defaults
-    console.warn('Could not load data.json, using defaults.', e);
+    console.warn('Could not load terms.json:', e);
+    // Minimal fallback structure if file missing
+    data = {
+      title: "License Terms Agreement",
+      subtitle: "Please read these terms carefully before using any items from the shop.",
+      lastUpdate: "",
+      email: "",
+      shop: "",
+      licenseHtml: "<p>No license content available.</p>",
+      footerNote: ""
+    };
   }
 
-  // Populate UI
+  // Populate UI from JSON
+  document.getElementById('pageTitle').textContent = data.title || '';
+  document.getElementById('pageSubtitle').textContent = data.subtitle || '';
+  document.getElementById('licenseHeading').textContent = data.title || '';
+  document.getElementById('licenseContent').innerHTML = data.licenseHtml || '';
+  document.getElementById('footerNote').textContent = data.footerNote || '';
+
+  // Last update formatting (dd-MMM-yyyy)
   const lastUpdateEl = document.getElementById('lastUpdate');
+  lastUpdateEl.textContent = formatDateString(data.lastUpdate || '');
+
+  // Email and shop text
   const emailTextEl = document.getElementById('emailText');
   const shopTextEl = document.getElementById('shopText');
-  const licenseContentEl = document.getElementById('licenseContent');
-  const contactEmailInline = document.getElementById('contactEmailInline');
-
-  lastUpdateEl.textContent = formatDateString(data.lastUpdate);
-  emailTextEl.textContent = data.email;
-  shopTextEl.textContent = data.shop;
-  licenseContentEl.innerHTML = data.licenseHtml;
-  if (contactEmailInline) contactEmailInline.textContent = data.email;
+  emailTextEl.textContent = data.email || '';
+  shopTextEl.textContent = data.shop || '';
 
   // Copy email button
   const copyBtn = document.getElementById('copyEmailBtn');
   copyBtn.addEventListener('click', async () => {
+    if (!data.email) return;
     try {
       await navigator.clipboard.writeText(data.email);
       copyBtn.setAttribute('aria-label', 'Email copied');
-      // small visual feedback
-      copyBtn.style.transform = 'translateY(-2px) scale(0.98)';
+      copyBtn.style.transform = 'translateY(-3px) scale(0.98)';
       setTimeout(()=>copyBtn.style.transform='', 220);
     } catch (err) {
       // fallback: select the text for manual copy
@@ -197,14 +217,78 @@
   // Open shop button
   const openShopBtn = document.getElementById('openShopBtn');
   openShopBtn.addEventListener('click', () => {
+    if (!data.shop) return;
     window.open(data.shop, '_blank', 'noopener');
   });
 
-  // Helper: ensure date is dd-MMM-yyyy (e.g., 12-Jan-2026)
+  // PDF generation
+  const downloadBtn = document.getElementById('downloadPdfBtn');
+  const downloadSmall = document.getElementById('downloadSmallBtn');
+  async function generatePdfAndSave(filename = 'license-terms.pdf') {
+    const card = document.getElementById('licenseCard');
+
+    // Clone and style for PDF rendering
+    const clone = card.cloneNode(true);
+    clone.style.width = '800px';
+    clone.style.padding = '28px';
+    clone.style.background = '#071a36';
+    clone.style.color = '#eaf6ff';
+    clone.querySelectorAll('a').forEach(a => a.style.color = '#bfe9ff');
+
+    const off = document.createElement('div');
+    off.style.position = 'fixed';
+    off.style.left = '-9999px';
+    off.style.top = '0';
+    off.appendChild(clone);
+    document.body.appendChild(off);
+
+    try {
+      const canvas = await html2canvas(clone, {
+        scale: 2,
+        backgroundColor: null,
+        useCORS: true,
+        logging: false
+      });
+
+      const imgData = canvas.toDataURL('image/png');
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF({
+        orientation: 'portrait',
+        unit: 'pt',
+        format: 'a4'
+      });
+
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+      const margin = 28;
+      const availableWidth = pageWidth - margin * 2;
+
+      const imgProps = await new Promise(resolve => {
+        const img = new Image();
+        img.onload = () => resolve({ w: img.width, h: img.height });
+        img.src = imgData;
+      });
+
+      const ratio = Math.min(availableWidth / imgProps.w, (pageHeight - margin*2) / imgProps.h);
+      const imgWidth = imgProps.w * ratio;
+      const imgHeight = imgProps.h * ratio;
+      pdf.addImage(imgData, 'PNG', margin, margin, imgWidth, imgHeight);
+      pdf.save(filename);
+    } catch (err) {
+      console.error('PDF generation failed', err);
+      alert('Could not generate PDF. Please try again in a modern browser.');
+    } finally {
+      document.body.removeChild(off);
+    }
+  }
+
+  downloadBtn.addEventListener('click', () => generatePdfAndSave('license-terms.pdf'));
+  downloadSmall.addEventListener('click', () => generatePdfAndSave('license-terms.pdf'));
+
+  // Helper: format date to dd-MMM-yyyy
   function formatDateString(input){
-    // If already in dd-MMM-yyyy, return as-is
+    if (!input) return '';
     if (/^\d{1,2}-[A-Za-z]{3}-\d{4}$/.test(input)) return input;
-    // Try to parse ISO or other formats
     const d = new Date(input);
     if (isNaN(d)) return input;
     const day = String(d.getDate()).padStart(2,'0');
