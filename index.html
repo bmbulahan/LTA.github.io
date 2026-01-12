@@ -1,202 +1,219 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title></title>
-
-  <style>
-    /* 🔒 STYLES UNCHANGED */
-    :root{
-      --dark-blue:#0b2540;
-      --muted:#9aa4b2;
-      --accent:#6ee7b7;
-      --accent-2:#60a5fa;
-      --text:#e6eef8;
-      --radius:12px;
-      --max-width:1100px;
-      --glass-border:rgba(255,255,255,0.04);
-      --shadow:0 10px 30px rgba(2,6,23,0.6);
-      --transition:220ms cubic-bezier(.2,.9,.3,1);
-      --control-height:36px;
-      --btn-size:36px;
-      --box-height:36px;
-    }
-
-    html,body{
-      height:100%;
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
-      background:var(--dark-blue);
-      color:var(--text);
-    }
-
-    .container{
-      max-width:var(--max-width);
-      margin:36px auto;
-      padding:18px;
-      display:grid;
-      grid-template-columns:320px 1fr;
-      gap:20px;
-    }
-
-    .panel,.card{
-      background:var(--dark-blue);
-      border-radius:var(--radius);
-      padding:18px;
-      border:1px solid var(--glass-border);
-      box-shadow:var(--shadow);
-    }
-
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{
-      width:64px;height:64px;border-radius:6px;
-      background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      display:flex;align-items:center;justify-content:center;
-      font-weight:700;color:#04263b;font-size:20px;
-    }
-
-    .left-rows{margin-top:14px;display:flex;flex-direction:column;gap:10px}
-    .row{display:flex;gap:10px;align-items:center}
-
-    .text-box{
-      flex:1;padding:8px 10px;border-radius:10px;
-      background:rgba(255,255,255,0.02);
-      border:1px solid rgba(255,255,255,0.04);
-      font-weight:600;font-size:.92rem;
-      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-    }
-
-    .action-btn{
-      width:var(--btn-size);height:var(--btn-size);
-      border-radius:8px;border:none;cursor:pointer;
-      display:flex;align-items:center;justify-content:center;
-      background:linear-gradient(180deg,var(--accent),var(--accent-2));
-    }
-
-    .controls{display:flex;gap:10px}
-    .search{
-      flex:1;background:transparent;
-      border:1px solid rgba(255,255,255,0.04);
-      border-radius:10px;padding:6px 10px;color:var(--text);
-    }
-
-    .accordion{margin-top:18px;display:grid;gap:12px}
-    .section{border-radius:12px;border:1px solid rgba(255,255,255,.03)}
-    .section-header{padding:14px 16px}
-    .section-body{padding:12px 18px 18px;line-height:1.6}
-
-    .card-footer{
-      margin-top:18px;display:flex;justify-content:space-between;
-      gap:12px;flex-wrap:wrap;color:var(--muted)
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>License Terms Agreement</title>
+<style>
+  :root{
+    --bg:#0b0f14;
+    --panel:#0f1720;
+    --muted:#9aa6b2;
+    --accent:#7c5cff;
+    --glass: rgba(255,255,255,0.03);
+    --card-shadow: 0 6px 18px rgba(2,6,23,0.7);
+    --btn-size:36px;
+    --radius:12px;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", monospace;
+  }
+  html,body{height:100%;margin:0;background:linear-gradient(180deg,#071018 0%, #08121a 100%);font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:#e6eef6;}
+  .wrap{max-width:920px;margin:48px auto;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:16px;box-shadow:var(--card-shadow);border:1px solid rgba(255,255,255,0.03);}
+  header{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+  .last-update{font-size:13px;color:var(--muted);letter-spacing:0.02em}
+  .update-date{font-weight:600;color:#dbe9ff;font-size:14px}
+  .top-row{display:flex;align-items:center;gap:12px;margin-top:6px;flex-wrap:wrap}
+  .contact{display:flex;align-items:center;gap:10px}
+  .btn-icon{
+    width:var(--btn-size);height:var(--btn-size);display:inline-grid;place-items:center;border-radius:8px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);cursor:pointer;
+    transition:transform .12s ease, background .12s ease;
+  }
+  .btn-icon:hover{transform:translateY(-2px);background:rgba(255,255,255,0.04)}
+  .selectable{user-select:text; -webkit-user-select:text; -moz-user-select:text;}
+  .email-row, .shop-row{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.02)}
+  .email-text, .shop-text{font-family:var(--mono);font-size:14px;color:#cfe6ff}
+  .spacer{flex:1}
+  main{margin-top:18px}
+  h1{margin:0;font-size:20px;color:#fff}
+  .subtitle{color:var(--muted);margin-top:6px;font-size:13px}
+  .card{margin-top:18px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.02)}
+  ol{padding-left:18px;margin:12px 0 0 0;color:var(--muted)}
+  li{margin:12px 0}
+  .section-title{font-weight:700;color:#eaf3ff;margin-bottom:8px}
+  .license-text{color:#dbe9ff;line-height:1.6}
+  footer{margin-top:18px;color:var(--muted);font-size:13px}
+  /* small responsive */
+  @media (max-width:640px){
+    .wrap{margin:18px;padding:18px}
+    .top-row{flex-direction:column;align-items:flex-start}
+  }
+</style>
 </head>
-
 <body>
-  <div class="container">
-    <aside class="panel">
-      <div class="brand">
-        <div id="logoText" class="logo"></div>
-        <div>
-          <h1 id="panel-title"></h1>
-          <p id="panel-subtitle"></p>
+  <div class="wrap" role="main">
+    <header>
+      <div class="last-update">Last update</div>
+      <div class="update-date" id="lastUpdate">--</div>
+
+      <div class="top-row">
+        <div class="contact email-row" title="Email (click copy)">
+          <button id="copyEmailBtn" class="btn-icon" aria-label="Copy email">
+            <!-- copy icon -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <path d="M16 21H8a2 2 0 0 1-2-2V7" stroke="#cfe6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="9" y="3" width="11" height="14" rx="2" stroke="#cfe6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="email-text selectable" id="emailText" aria-live="polite">loading...</div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="contact shop-row" title="Shop link">
+          <div class="shop-text selectable" id="shopText">loading...</div>
+          <button id="openShopBtn" class="btn-icon" aria-label="Open shop in new tab">
+            <!-- external link icon -->
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <path d="M14 3h7v7" stroke="#cfe6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 14L21 3" stroke="#cfe6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 21H3V3" stroke="#cfe6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </div>
       </div>
+    </header>
 
-      <div id="panel-meta" class="meta"></div>
+    <main>
+      <h1>License Terms Agreement</h1>
+      <div class="subtitle">Please read these terms carefully before using any items from the shop.</div>
 
-      <div class="left-rows">
-        <div class="row">
-          <div id="emailText" class="text-box"></div>
-          <button id="copyBtn" class="action-btn"></button>
+      <section class="card" id="licenseCard" aria-labelledby="licenseHeading">
+        <div class="section-title" id="licenseHeading">License Terms Agreement</div>
+        <div class="license-text" id="licenseContent">
+          <!-- license content will be injected here from JSON -->
+          Loading license...
         </div>
+      </section>
 
-        <div class="row">
-          <div id="shopText" class="text-box"></div>
-          <a id="shopBtn" class="action-btn" target="_blank"></a>
-        </div>
-
-        <div id="panel-tip" class="small-note"></div>
-      </div>
-    </aside>
-
-    <main class="card">
-      <div class="card-header">
-        <div>
-          <h2 id="main-title"></h2>
-          <p id="subtitle"></p>
-        </div>
-
-        <div class="controls">
-          <input id="searchInput" class="search" />
-          <div class="last-updated-box">
-            <div id="lastUpdatedLabel" class="label"></div>
-            <div id="lastUpdated" class="date"></div>
-          </div>
-        </div>
-      </div>
-
-      <div id="accordion" class="accordion"></div>
-
-      <div class="card-footer">
-        <div id="agreementNote"></div>
-        <div id="sourceAttribution" class="pill"></div>
-      </div>
+      <footer>
+        <div>By purchasing, downloading, or using any item or file from this shop, you acknowledge that you have read, understood, and agreed to these License Terms.</div>
+      </footer>
     </main>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+<script>
+(async function(){
+  const defaults = {
+    lastUpdate: "12-Jan-2026",
+    email: "Bulahan.belmar@gmail.om",
+    shop: "https://ko-fi.com/bmbulahan/shop",
+    licenseHtml: `
+      <ol>
+        <li>
+          <strong>Personal Use Only</strong>
+          <div>All items and files purchased from this shop are licensed solely for personal use. Commercial use of any kind—including but not limited to resale, reproduction, distribution, or incorporation into products for sale—is strictly prohibited unless prior written permission is obtained.</div>
+        </li>
+        <li>
+          <strong>Restrictions on 3D Models and Files</strong>
+          <div>Any 3D model, or portion thereof, whether in digital or physical format, may not be:
+            <ul>
+              <li>Shared or transmitted to others</li>
+              <li>Redistributed or uploaded to any platform</li>
+              <li>Remixed, altered, or duplicated for distribution</li>
+              <li>Sold, licensed, or otherwise monetized</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <strong>Ownership</strong>
+          <div>All items and files remain the intellectual property of ko-fi.com/bmbulahan. Purchase grants the buyer a non-exclusive, non-transferable license for personal use only.</div>
+        </li>
+        <li>
+          <strong>Enforcement</strong>
+          <div>Violation of these terms may result in revocation of license, removal of access, and potential legal action.</div>
+        </li>
+        <li>
+          <strong>Commercial Licensing Contact</strong>
+          <div>If you wish to use any item or file for commercial purposes, you must obtain a separate commercial license. Please contact at <span id="contactEmailInline">Bulahan.belmar@gmail.om</span> to discuss licensing terms, fees, and permissions.</div>
+        </li>
+        <li>
+          <strong>Agreement</strong>
+          <div>By purchasing, downloading, or using any item or file from this shop, you acknowledge that you have read, understood, and agreed to these License Terms.</div>
+        </li>
+      </ol>
+    `
+  };
 
-  <script>
-    const SOURCE = 'terms.json';
+  // Attempt to fetch data.json from same directory
+  let data = defaults;
+  try {
+    const res = await fetch('data.json', {cache: "no-store"});
+    if (res.ok) {
+      const json = await res.json();
+      // Basic validation and fallback
+      data = {
+        lastUpdate: json.lastUpdate || defaults.lastUpdate,
+        email: json.email || defaults.email,
+        shop: json.shop || defaults.shop,
+        licenseHtml: json.licenseHtml || defaults.licenseHtml
+      };
+    }
+  } catch (e) {
+    // fetch failed; keep defaults
+    console.warn('Could not load data.json, using defaults.', e);
+  }
 
-    const $ = id => document.getElementById(id);
+  // Populate UI
+  const lastUpdateEl = document.getElementById('lastUpdate');
+  const emailTextEl = document.getElementById('emailText');
+  const shopTextEl = document.getElementById('shopText');
+  const licenseContentEl = document.getElementById('licenseContent');
+  const contactEmailInline = document.getElementById('contactEmailInline');
 
-    fetch(SOURCE,{cache:'no-store'})
-      .then(r=>r.json())
-      .then(d=>{
-        document.title = d.pageTitle;
+  lastUpdateEl.textContent = formatDateString(data.lastUpdate);
+  emailTextEl.textContent = data.email;
+  shopTextEl.textContent = data.shop;
+  licenseContentEl.innerHTML = data.licenseHtml;
+  if (contactEmailInline) contactEmailInline.textContent = data.email;
 
-        $('logoText').textContent = d.brand.logoText;
-        $('panel-title').textContent = d.brand.brandTitle;
-        $('panel-subtitle').textContent = d.brand.brandSubtitle;
-        $('panel-meta').textContent = d.brand.meta;
-        $('panel-tip').textContent = d.brand.tip;
+  // Copy email button
+  const copyBtn = document.getElementById('copyEmailBtn');
+  copyBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(data.email);
+      copyBtn.setAttribute('aria-label', 'Email copied');
+      // small visual feedback
+      copyBtn.style.transform = 'translateY(-2px) scale(0.98)';
+      setTimeout(()=>copyBtn.style.transform='', 220);
+    } catch (err) {
+      // fallback: select the text for manual copy
+      const range = document.createRange();
+      range.selectNodeContents(emailTextEl);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }
+  });
 
-        $('main-title').textContent = d.title;
-        $('subtitle').textContent = d.subtitle;
+  // Open shop button
+  const openShopBtn = document.getElementById('openShopBtn');
+  openShopBtn.addEventListener('click', () => {
+    window.open(data.shop, '_blank', 'noopener');
+  });
 
-        $('emailText').textContent = d.contact.email;
-        $('shopText').textContent = d.contact.shop;
-        $('shopBtn').href = d.contact.shop;
-
-        $('searchInput').placeholder = d.ui.searchPlaceholder;
-        $('copyBtn').title = d.ui.copyEmailTooltip;
-        $('shopBtn').title = d.ui.openShopTooltip;
-
-        $('lastUpdatedLabel').textContent = d.ui.lastUpdatedLabel;
-        $('lastUpdated').textContent =
-          new Date(d.lastUpdated).toLocaleDateString(undefined,{
-            weekday:'long',year:'numeric',month:'long',day:'numeric'
-          });
-
-        $('agreementNote').textContent = d.ui.agreementNote;
-        $('sourceAttribution').textContent = d.ui.sourceAttribution;
-
-        d.sections.forEach(s=>{
-          const sec=document.createElement('section');
-          sec.className='section';
-          sec.innerHTML=
-            `<div class="section-header"><strong>${s.title}</strong></div>
-             <div class="section-body">${
-               typeof s.body==='string'
-                 ? `<p>${s.body}</p>`
-                 : `<p>${s.body.intro}</p><ul>${s.body.items.map(i=>`<li>${i}</li>`).join('')}</ul>`
-             }</div>`;
-          $('accordion').append(sec);
-        });
-      });
-  </script>
+  // Helper: ensure date is dd-MMM-yyyy (e.g., 12-Jan-2026)
+  function formatDateString(input){
+    // If already in dd-MMM-yyyy, return as-is
+    if (/^\d{1,2}-[A-Za-z]{3}-\d{4}$/.test(input)) return input;
+    // Try to parse ISO or other formats
+    const d = new Date(input);
+    if (isNaN(d)) return input;
+    const day = String(d.getDate()).padStart(2,'0');
+    const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    const mon = monthNames[d.getMonth()];
+    const yr = d.getFullYear();
+    return `${day}-${mon}-${yr}`;
+  }
+})();
+</script>
 </body>
 </html>
